@@ -32,7 +32,7 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
 
           <div className="space-y-3">
             <a
-              href="https://t.me/"
+              href="https://t.me/Anastasiasotnikovaa"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-card text-foreground px-6 py-4 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
@@ -40,7 +40,7 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
               Написать в Telegram
             </a>
             <a
-              href="https://wa.me/"
+              href="https://wa.me/79778500815"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-card text-foreground px-6 py-4 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"

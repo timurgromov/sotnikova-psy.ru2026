@@ -9,7 +9,7 @@ const FooterSection = () => (
       </p>
       <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
         <a
-          href="https://t.me/"
+          href="https://t.me/Anastasiasotnikovaa"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors"
@@ -17,7 +17,7 @@ const FooterSection = () => (
           Telegram
         </a>
         <a
-          href="https://wa.me/"
+          href="https://wa.me/79778500815"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors"
