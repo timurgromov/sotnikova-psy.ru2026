@@ -1,5 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
-import therapistPortrait from "@/assets/therapist-portrait.jpg";
+import aboutPortrait from "../../photos-review/photo-05.jpeg";
 
 const AboutSection = () => (
   <div className="section-gap">
@@ -13,7 +13,7 @@ const AboutSection = () => (
       <div className="flex flex-col md:flex-row items-center gap-10">
         <AnimatedSection className="flex-shrink-0">
           <img
-            src={therapistPortrait}
+            src={aboutPortrait}
             alt="Анастасия Сотникова"
             className="w-64 h-80 md:w-72 md:h-96 rounded-[1.5rem] object-cover shadow-sm"
             loading="lazy"

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import therapistPortrait from "@/assets/therapist-portrait.jpg";
+import heroPortrait from "../../photos-review/photo-02.jpeg";
 
 interface HeroSectionProps {
   onBookClick: () => void;
@@ -79,7 +79,7 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
           className="md:w-[45%] flex-shrink-0"
         >
           <img
-            src={therapistPortrait}
+            src={heroPortrait}
             alt="Анастасия Сотникова — психолог"
             className="w-64 h-64 md:w-full md:h-auto md:aspect-[3/4] rounded-[1.5rem] object-cover shadow-sm mx-auto"
             loading="eager"
