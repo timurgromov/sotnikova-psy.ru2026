@@ -15,7 +15,7 @@ const AboutSection = () => (
           <img
             src={aboutPortrait}
             alt="Анастасия Сотникова"
-            className="w-64 h-80 md:w-72 md:h-96 rounded-[1.5rem] object-cover shadow-sm"
+            className="w-72 h-[26rem] md:w-80 md:h-[30rem] rounded-[1.5rem] object-cover shadow-sm"
             loading="lazy"
           />
         </AnimatedSection>
