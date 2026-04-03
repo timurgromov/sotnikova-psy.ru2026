@@ -1,5 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
-import avatarPortrait from "../../photos-review/photo-01.jpeg";
+import avatarPortrait from "../../photos-review/photo-03.jpeg";
 
 const TherapistAvatar = () => (
   <div className="pb-4">
