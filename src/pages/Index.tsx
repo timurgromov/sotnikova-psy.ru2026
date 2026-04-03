@@ -3,8 +3,10 @@ import HeroSection from "@/components/HeroSection";
 import PathSection from "@/components/PathSection";
 import TherapistAvatar from "@/components/TherapistAvatar";
 import BentoSection from "@/components/BentoSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import ServicesSection from "@/components/ServicesSection";
+import FaqSection from "@/components/FaqSection";
 import CertificatesSection from "@/components/CertificatesSection";
 import AboutSection from "@/components/AboutSection";
 import ConfidentialitySection from "@/components/ConfidentialitySection";
@@ -24,8 +26,10 @@ const Index = () => {
         <PathSection />
         <TherapistAvatar />
         <BentoSection />
+        <BenefitsSection />
         <ExpertiseSection />
         <ServicesSection onBookClick={handleBookClick} />
+        <FaqSection />
         <CertificatesSection />
         <AboutSection />
         <ConfidentialitySection />
