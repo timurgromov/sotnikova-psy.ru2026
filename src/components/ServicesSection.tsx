@@ -4,24 +4,32 @@ interface ServicesSectionProps {
   onBookClick: () => void;
 }
 
-const services = [
+const concerns = [
   {
-    title: "Встреча-знакомство",
-    subtitle: "Бесплатно · 15–20 минут",
-    desc: "Для тех, кто хочет познакомиться и задать вопросы. Без обязательств.",
-    highlight: true,
+    title: "Еда, ограничения и чувство вины",
+    items: [
+      "Если вы постоянно сидите на диетах, считаете калории, читаете составы — и всё равно срываетесь.",
+      "Если вы делите еду на «правильную» и «вредную» и чувствуете вину, когда едите «не то».",
+      "Если стараетесь «отработать» еду спортом, голоданием или ограничениями.",
+      "Если отказываетесь от еды по вечерам, «чтобы не поправиться», даже когда голодны.",
+    ],
   },
   {
-    title: "Диагностическая консультация",
-    subtitle: "Первая встреча · 60 минут",
-    desc: "Для тех, кто хочет план. Определяем диагноз, формулируем цели и выстраиваем маршрут терапии.",
-    highlight: false,
+    title: "Потеря контакта с телом и переедания",
+    items: [
+      "Если приёмы пищи не связаны с голодом — едите «по расписанию», «на всякий случай» или вообще забываете поесть.",
+      "Если тянет к еде в ответ на стресс, скуку, одиночество, тревогу, злость.",
+      "Если вы сталкиваетесь с перееданиями, булимией, чувством потери контроля.",
+      "Если недовольны своим телом и внешностью, избегаете зеркал, одежды, фотографий.",
+    ],
   },
   {
-    title: "Терапевтическая сессия",
-    subtitle: "Регулярные встречи · 50 минут",
-    desc: "Для тех, кто готов идти. Глубокая работа с опорой на доказательные методы.",
-    highlight: false,
+    title: "Тревога, границы и отношение к себе",
+    items: [
+      "Если еда — это развлечение, привычка, способ быть с другими или просто «что-то, что всегда рядом».",
+      "Если вам трудно говорить «нет», отстаивать границы и вы часто живёте по чужим ожиданиям.",
+      "Если вы много сомневаетесь в себе, чувствуете вину, тревогу, стыд, неуверенность — и всё это только усиливает трудности с едой и телом.",
+    ],
   },
 ];
 
@@ -30,29 +38,35 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
     <div className="container max-w-4xl mx-auto px-6">
       <AnimatedSection>
         <h2 className="font-heading text-2xl md:text-3xl font-bold mb-12 text-center">
-          Форматы работы
+          С какими вопросами к вам можно обратиться?
         </h2>
       </AnimatedSection>
 
+      <AnimatedSection delay={0.05}>
+        <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-3xl mx-auto mb-10">
+          С чем я могу помочь:
+        </p>
+      </AnimatedSection>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {services.map((s, i) => (
-          <AnimatedSection key={s.title} delay={i * 0.1}>
-            <div
-              className={`card-surface p-8 h-full flex flex-col ${
-                s.highlight ? "ring-2 ring-primary/30" : ""
-              }`}
-            >
-              <p className="text-xs font-medium text-primary mb-3 tracking-wide uppercase">
-                {s.subtitle}
-              </p>
-              <h3 className="font-heading text-lg font-semibold mb-3">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed flex-1">{s.desc}</p>
-              {s.highlight && (
+        {concerns.map((group, i) => (
+          <AnimatedSection key={group.title} delay={i * 0.1}>
+            <div className="card-surface p-8 h-full flex flex-col">
+              <h3 className="font-heading text-lg font-semibold mb-4">{group.title}</h3>
+              <ul className="text-muted-foreground text-sm leading-relaxed space-y-3 flex-1">
+                {group.items.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              {i === 0 && (
                 <button
                   onClick={onBookClick}
                   className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
                 >
-                  Записаться бесплатно
+                  Записаться на консультацию
                 </button>
               )}
             </div>
