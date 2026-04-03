@@ -12,12 +12,14 @@ const AboutSection = () => (
 
       <div className="flex flex-col md:flex-row items-center gap-10">
         <AnimatedSection className="flex-shrink-0">
-          <img
-            src={aboutPortrait}
-            alt="Анастасия Сотникова"
-            className="w-64 h-80 md:w-72 md:h-96 rounded-[1.5rem] object-cover shadow-sm"
-            loading="lazy"
-          />
+          <div className="w-64 h-80 md:w-72 md:h-96 rounded-[1.5rem] overflow-hidden shadow-sm bg-card">
+            <img
+              src={aboutPortrait}
+              alt="Анастасия Сотникова"
+              className="w-full h-full object-cover object-[center_78%] scale-[1.9]"
+              loading="lazy"
+            />
+          </div>
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
