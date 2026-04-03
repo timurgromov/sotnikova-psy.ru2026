@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface BookingOverlayProps {
   open: boolean;
@@ -47,6 +48,14 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
               Написать в WhatsApp
             </a>
           </div>
+
+          <p className="mt-5 text-primary-foreground/70 text-xs leading-relaxed">
+            Нажимая кнопку, вы соглашаетесь с{" "}
+            <Link to="/privacy" className="underline underline-offset-2">
+              Политикой конфиденциальности
+            </Link>
+            .
+          </p>
 
           <button
             onClick={onClose}

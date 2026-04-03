@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FooterSection = () => (
   <footer className="py-12 border-t border-border">
     <div className="container max-w-2xl mx-auto px-6 text-center">
@@ -22,6 +24,14 @@ const FooterSection = () => (
         >
           WhatsApp
         </a>
+      </div>
+      <div className="mt-6">
+        <Link
+          to="/privacy"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Политика конфиденциальности
+        </Link>
       </div>
     </div>
   </footer>
