@@ -5,7 +5,7 @@ const AboutSection = () => (
   <div className="section-gap">
     <div className="container max-w-4xl mx-auto px-6">
       <AnimatedSection>
-        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-12 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-8 text-center">
           Обо мне
         </h2>
       </AnimatedSection>

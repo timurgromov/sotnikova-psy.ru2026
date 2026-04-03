@@ -37,13 +37,13 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
   <div className="section-gap">
     <div className="container max-w-4xl mx-auto px-6">
       <AnimatedSection>
-        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-12 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6 text-center">
           С какими вопросами к вам можно обратиться?
         </h2>
       </AnimatedSection>
 
       <AnimatedSection delay={0.05}>
-        <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-3xl mx-auto mb-10">
+        <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-3xl mx-auto mb-6">
           С чем я могу помочь:
         </p>
       </AnimatedSection>

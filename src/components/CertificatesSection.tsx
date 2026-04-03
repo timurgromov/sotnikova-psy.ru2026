@@ -33,13 +33,13 @@ const CertificatesSection = () => {
     <div className="section-gap">
       <div className="container max-w-5xl mx-auto px-6">
         <AnimatedSection>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-3 text-center">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-2 text-center">
             Дипломы и сертификаты
           </h2>
           <p className="text-sm font-medium text-foreground/80 text-center mb-1">
             15+ профессиональных сертификатов
           </p>
-          <p className="text-xs text-muted-foreground text-center mb-12">
+          <p className="text-xs text-muted-foreground text-center mb-8">
             CBT-E • EMDR • DBT • клиническая психология
           </p>
         </AnimatedSection>

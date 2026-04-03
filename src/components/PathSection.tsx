@@ -27,12 +27,12 @@ const PathSection = () => (
   <div id="path" className="section-gap">
     <div className="container max-w-2xl mx-auto px-6">
       <AnimatedSection>
-        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-16 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-10 text-center">
           Как мы будем работать
         </h2>
       </AnimatedSection>
 
-      <div className="space-y-12">
+      <div className="space-y-8">
         {steps.map((step, i) => (
           <AnimatedSection key={step.num} delay={i * 0.1}>
             <div className="flex gap-6 items-start">

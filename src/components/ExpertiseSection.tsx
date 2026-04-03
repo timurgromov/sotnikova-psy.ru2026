@@ -43,7 +43,7 @@ const ExpertiseSection = () => (
   <div className="section-gap">
     <div className="container max-w-2xl mx-auto px-6">
       <AnimatedSection>
-        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-12 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold mb-8 text-center">
           Про подходы
         </h2>
       </AnimatedSection>
