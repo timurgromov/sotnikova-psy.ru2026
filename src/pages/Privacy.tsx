@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Privacy = () => (
   <main className="min-h-screen bg-background text-foreground">
     <div className="container max-w-4xl mx-auto px-6 py-16 md:py-24">
       <div className="max-w-3xl mx-auto">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
           ← Вернуться на главную
-        </a>
+        </Link>
 
         <h1 className="font-heading text-3xl md:text-4xl font-bold mb-8">
           Политика конфиденциальности
@@ -165,6 +167,15 @@ const Privacy = () => (
               вы можете обратиться по электронной почте: stasia_93@inbox.ru
             </p>
           </section>
+        </div>
+
+        <div className="mt-10">
+          <Link
+            to="/"
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            ← Вернуться на главную
+          </Link>
         </div>
       </div>
     </div>
