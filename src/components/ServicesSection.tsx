@@ -61,7 +61,7 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
                   </li>
                 ))}
               </ul>
-              {i === 0 && (
+              {i === 2 && (
                 <button
                   onClick={onBookClick}
                   className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
