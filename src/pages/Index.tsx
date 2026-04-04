@@ -7,6 +7,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import ServicesSection from "@/components/ServicesSection";
 import FaqSection from "@/components/FaqSection";
+import PricingSection from "@/components/PricingSection";
 import CertificatesSection from "@/components/CertificatesSection";
 import AboutSection from "@/components/AboutSection";
 import ConfidentialitySection from "@/components/ConfidentialitySection";
@@ -30,6 +31,7 @@ const Index = () => {
         <ExpertiseSection />
         <ServicesSection onBookClick={handleBookClick} />
         <FaqSection />
+        <PricingSection onBookClick={handleBookClick} />
         <CertificatesSection />
         <AboutSection />
         <ConfidentialitySection />
