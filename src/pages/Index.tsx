@@ -25,11 +25,11 @@ const Index = () => {
       <main>
         <HeaderSection onBookClick={handleBookClick} />
         <HeroSection onBookClick={handleBookClick} />
+        <ServicesSection onBookClick={handleBookClick} />
+        <BenefitsSection />
+        <ExpertiseSection />
         <AboutSection />
         <BentoSection />
-        <ServicesSection onBookClick={handleBookClick} />
-        <ExpertiseSection />
-        <BenefitsSection />
         <PathSection />
         <FaqSection />
         <PricingSection onBookClick={handleBookClick} />
