@@ -1,7 +1,6 @@
 import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import PathSection from "@/components/PathSection";
-import TherapistAvatar from "@/components/TherapistAvatar";
 import BentoSection from "@/components/BentoSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
@@ -24,16 +23,15 @@ const Index = () => {
     <>
       <main>
         <HeroSection onBookClick={handleBookClick} />
-        <PathSection />
-        <TherapistAvatar />
+        <AboutSection />
         <BentoSection />
-        <BenefitsSection />
-        <ExpertiseSection />
         <ServicesSection onBookClick={handleBookClick} />
+        <ExpertiseSection />
+        <BenefitsSection />
+        <PathSection />
         <FaqSection />
         <PricingSection onBookClick={handleBookClick} />
         <CertificatesSection />
-        <AboutSection />
         <ConfidentialitySection />
         <FooterSection />
       </main>
