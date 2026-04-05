@@ -24,9 +24,12 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
           <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
             <a
               href="#top"
-              className="font-heading font-semibold text-sm md:text-base tracking-tight"
+              className="font-heading font-semibold text-sm md:text-base tracking-tight flex flex-col leading-tight"
             >
-              Анастасия Сотникова
+              <span>Анастасия Сотникова</span>
+              <span className="text-[11px] font-normal text-muted-foreground md:hidden">
+                Психолог
+              </span>
             </a>
 
             <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground justify-self-center">
