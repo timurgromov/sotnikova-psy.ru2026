@@ -20,7 +20,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 pt-4">
-        <div className="rounded-full border border-border/80 bg-background/85 backdrop-blur-md shadow-sm px-4 md:px-6 py-3">
+        <div className="rounded-[28px] md:rounded-full border border-border/80 bg-background/85 backdrop-blur-md shadow-sm px-4 md:px-6 py-3">
           <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
             <a
               href="#top"
@@ -66,8 +66,8 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
           </div>
 
           {open && (
-            <div className="md:hidden pt-4 pb-2 border-t border-border/70 mt-4">
-              <nav className="flex flex-col gap-3 text-sm">
+            <div className="md:hidden mt-3 rounded-[24px] border border-border/70 bg-background/95 px-4 py-4 shadow-md">
+              <nav className="flex flex-col gap-4 text-sm">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
@@ -80,7 +80,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
                 ))}
               </nav>
 
-              <div className="flex flex-col gap-3 mt-4">
+              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border/60">
                 <a
                   href="tel:+79778500815"
                   className="text-sm font-medium text-foreground hover:text-primary transition-colors"
