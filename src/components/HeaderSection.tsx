@@ -22,7 +22,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 pt-4">
         <div className="rounded-full border border-border/80 bg-background/85 backdrop-blur-md shadow-sm px-4 md:px-6 py-3">
-          <div className="flex items-center justify-between gap-4">
+          <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
             <a
               href="#top"
               className="font-heading font-semibold text-sm md:text-base tracking-tight"
@@ -30,7 +30,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
               Анастасия Сотникова
             </a>
 
-            <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
+            <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground justify-self-center">
               {navItems.map((item) => (
                 <a
                   key={item.href}
@@ -42,7 +42,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
               ))}
             </nav>
 
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4 lg:justify-self-end">
               <a
                 href="tel:+79778500815"
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
@@ -59,7 +59,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
 
             <button
               onClick={() => setOpen((value) => !value)}
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border/80 text-foreground"
+              className="md:hidden inline-flex items-center justify-center justify-self-end w-10 h-10 rounded-full border border-border/80 text-foreground"
               aria-label={open ? "Закрыть меню" : "Открыть меню"}
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
