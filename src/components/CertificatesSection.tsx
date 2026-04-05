@@ -113,11 +113,6 @@ const certificates: CertificateItem[] = [
     src: certificateSrc("13.jpeg"),
   },
   {
-    title: "Профессиональная переподготовка: практический психолог",
-    meta: "НАДПО · 2022",
-    src: certificateSrc("15.jpeg"),
-  },
-  {
     title: "Методология работы консультанта-диетолога",
     meta: "Школа диетологов · 12 ак. часов · 2021",
     src: certificateSrc("21.jpeg"),
@@ -147,7 +142,7 @@ const CertificatesSection = () => {
             Дипломы и сертификаты
           </h2>
           <p className="text-sm font-medium text-foreground/80 text-center mb-1">
-            22 подтверждающих документа
+            21 подтверждающий документ
           </p>
           <p className="text-xs text-muted-foreground text-center mb-8">
             CBT-E • EMDR • DBT • клиническая психология
