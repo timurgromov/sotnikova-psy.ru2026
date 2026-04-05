@@ -35,7 +35,7 @@ const faqItems = [
 ];
 
 const FaqSection = () => (
-  <div className="section-gap">
+  <div id="faq" className="section-gap">
     <div className="container max-w-3xl mx-auto px-6">
       <AnimatedSection>
         <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4 text-center">

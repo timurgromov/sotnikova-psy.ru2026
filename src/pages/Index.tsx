@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HeaderSection from "@/components/HeaderSection";
 import HeroSection from "@/components/HeroSection";
 import PathSection from "@/components/PathSection";
 import BentoSection from "@/components/BentoSection";
@@ -22,6 +23,7 @@ const Index = () => {
   return (
     <>
       <main>
+        <HeaderSection onBookClick={handleBookClick} />
         <HeroSection onBookClick={handleBookClick} />
         <AboutSection />
         <BentoSection />

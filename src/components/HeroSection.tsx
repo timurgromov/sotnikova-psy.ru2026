@@ -6,7 +6,10 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onBookClick }: HeroSectionProps) => (
-  <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+  <section
+    id="top"
+    className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-28 md:pt-32"
+  >
     {/* Blur blobs */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -63,7 +66,7 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
               Записаться на встречу-знакомство
             </button>
             <a
-              href="#path"
+              href="#about"
               className="text-foreground/70 hover:text-foreground transition-colors text-sm font-medium"
             >
               Узнать больше ↓

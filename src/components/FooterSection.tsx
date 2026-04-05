@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 
 const FooterSection = () => (
-  <footer className="py-12 border-t border-border">
+  <footer id="contacts" className="py-12 border-t border-border">
     <div className="container max-w-2xl mx-auto px-6 text-center">
       <p className="font-heading font-semibold mb-2">Анастасия Сотникова</p>
       <p className="text-muted-foreground text-sm mb-6">
         Психолог · Специалист по расстройствам пищевого поведения
       </p>
+      <a
+        href="tel:+79778500815"
+        className="inline-block text-sm font-medium mb-6 hover:text-primary transition-colors"
+      >
+        +7 977 850-08-15
+      </a>
       <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
         <a
           href="https://t.me/Anastasiasotnikovaa"
