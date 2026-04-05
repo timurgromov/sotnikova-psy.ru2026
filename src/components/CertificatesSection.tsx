@@ -1,33 +1,156 @@
-import { useState, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useState } from "react";
+import { X } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
-import certificatePlaceholder from "@/assets/certificate-placeholder.jpg";
 
-const certificates = [
-  { title: "Диплом клинического психолога", year: "2016", institution: "МГУ" },
-  { title: "Сертификат CBT-E терапии", year: "2018", institution: "Beck Institute" },
-  { title: "Сертификат EMDR практика", year: "2019", institution: "EMDR Europe" },
-  { title: "Диплом специалиста по РПП", year: "2019", institution: "AEDP Institute" },
-  { title: "Сертификат модели Марши Херрин", year: "2020", institution: "Marsha Herrin & Associates" },
-  { title: "Повышение квалификации — травмотерапия", year: "2021", institution: "ИПП" },
-  { title: "Сертификат DBT-терапии", year: "2021", institution: "Linehan Institute" },
-  { title: "Курс мотивационного интервьюирования", year: "2022", institution: "MINT" },
+type CertificateOrientation = "portrait" | "landscape";
+
+type CertificateItem = {
+  title: string;
+  meta: string;
+  src: string;
+  orientation: CertificateOrientation;
+};
+
+const certificateSrc = (fileName: string) =>
+  new URL(`../../certificates/${fileName}`, import.meta.url).href;
+
+const certificates: CertificateItem[] = [
+  {
+    title: "Свидетельство о членстве в АРППС",
+    meta: "АРППС · 2024",
+    src: certificateSrc("1.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
+    meta: "Психодемия · 127 часов · 2024",
+    src: certificateSrc("2.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Профессиональная переподготовка: практический психолог",
+    meta: "НАДПО · 2022",
+    src: certificateSrc("3.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Психотерапия расстройств пищевого поведения: продвинутый курс",
+    meta: "Чистые Когниции · 40 часов · 2025",
+    src: certificateSrc("4.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Базовый тренинг EMDR 1 и 2 модуль",
+    meta: "EMDR Europe · 72 часа · 2025",
+    src: certificateSrc("5.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Программа подготовки в Школе диетологов",
+    meta: "Школа диетологов · 16 модулей",
+    src: certificateSrc("6.jpg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Психотерапия РПП: продвинутый курс",
+    meta: "Школа ЧК · 40 часов · 2025",
+    src: certificateSrc("7.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Поведенческая психотерапия в клинической практике",
+    meta: "Чистые Когниции · 33 часа · 2024/2025",
+    src: certificateSrc("8.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Деньги и предназначение",
+    meta: "Институт практической онлайн психологии · 54 часа · 2023",
+    src: certificateSrc("9.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "X Всероссийская научно-практическая конференция EMDR/ДПДГ России",
+    meta: "Москва · 8-10 ноября 2024",
+    src: certificateSrc("10.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Осознанное питание",
+    meta: "Институт практической онлайн психологии · 68 часов · 2023",
+    src: certificateSrc("11.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Деньги и предназначение",
+    meta: "Институт практической онлайн психологии · 54 часа · 2023",
+    src: certificateSrc("12.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Свидетельство о членстве в АРППС",
+    meta: "АРППС · 2024",
+    src: certificateSrc("13.jpeg"),
+    orientation: "portrait",
+  },
+  {
+    title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
+    meta: "Психодемия · 127 часов · 2024",
+    src: certificateSrc("14.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Профессиональная переподготовка: практический психолог",
+    meta: "НАДПО · 2022",
+    src: certificateSrc("15.jpeg"),
+    orientation: "portrait",
+  },
+  {
+    title: "Стратегия формирования здоровых пищевых привычек в семье",
+    meta: "Школа диетологов · 10 ак. часов · 2021",
+    src: certificateSrc("16.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Диетотерапия при аллергии и непереносимости глютена",
+    meta: "Школа диетологов · 3 ак. часа · 2021",
+    src: certificateSrc("17.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Молочная продукция",
+    meta: "Школа диетологов · 3 ак. часа · 2021",
+    src: certificateSrc("18.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Fitness for pregnant women",
+    meta: "Start Fit · 5 часов · 2019",
+    src: certificateSrc("19.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Сахар и сахарозаменители",
+    meta: "Школа диетологов · 5 ак. часов · 2021",
+    src: certificateSrc("20.jpeg"),
+    orientation: "landscape",
+  },
+  {
+    title: "Методология работы консультанта-диетолога",
+    meta: "Школа диетологов · 12 ак. часов · 2021",
+    src: certificateSrc("21.jpeg"),
+    orientation: "portrait",
+  },
+  {
+    title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
+    meta: "Психодемия · 127 часов · 2024",
+    src: certificateSrc("22.jpeg"),
+    orientation: "landscape",
+  },
 ];
 
 const CertificatesSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  const scroll = useCallback((direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const cardWidth = scrollRef.current.firstElementChild
-      ? (scrollRef.current.firstElementChild as HTMLElement).offsetWidth + 16
-      : 240;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -cardWidth * 2 : cardWidth * 2,
-      behavior: "smooth",
-    });
-  }, []);
 
   return (
     <div className="section-gap">
@@ -37,63 +160,48 @@ const CertificatesSection = () => {
             Дипломы и сертификаты
           </h2>
           <p className="text-sm font-medium text-foreground/80 text-center mb-1">
-            15+ профессиональных сертификатов
+            22 подтверждающих документа
           </p>
           <p className="text-xs text-muted-foreground text-center mb-8">
             CBT-E • EMDR • DBT • клиническая психология
           </p>
         </AnimatedSection>
 
-        {/* Slider */}
-        <div className="relative group">
-          {/* Arrows */}
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 rounded-full bg-card shadow-md flex items-center justify-center text-foreground/60 hover:text-foreground transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-            aria-label="Назад"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 rounded-full bg-card shadow-md flex items-center justify-center text-foreground/60 hover:text-foreground transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-            aria-label="Вперёд"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          {/* Scrollable track */}
-          <div
-            ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 scrollbar-hide"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {certificates.map((cert, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-[45%] sm:w-[30%] md:w-[22%] snap-start cursor-pointer"
-                onClick={() => setLightboxIndex(i)}
-              >
-                <div className="card-surface overflow-hidden h-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {certificates.map((cert, i) => (
+            <button
+              key={`${cert.src}-${i}`}
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              className="group text-left"
+            >
+              <div className="card-surface overflow-hidden h-full transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
+                <div
+                  className={`relative overflow-hidden bg-background/60 ${
+                    cert.orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
+                  }`}
+                >
                   <img
-                    src={certificatePlaceholder}
+                    src={cert.src}
                     alt={cert.title}
-                    className="w-full aspect-[3/4] object-cover"
+                    className="absolute inset-0 h-full w-full object-contain p-3"
                     loading="lazy"
+                    decoding="async"
                   />
-                  <div className="p-3">
-                    <p className="text-xs font-medium text-foreground leading-snug line-clamp-2">
-                      {cert.title}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground mt-1">
-                      {cert.year} · {cert.institution}
-                    </p>
-                  </div>
+                </div>
+                <div className="p-4">
+                  <p className="text-sm font-medium text-foreground leading-snug min-h-[3rem]">
+                    {cert.title}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {cert.meta}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </button>
+          ))}
         </div>
+
         <p className="text-xs text-muted-foreground text-center mt-4">
           Нажмите на сертификат, чтобы открыть его полностью
         </p>
@@ -107,17 +215,25 @@ const CertificatesSection = () => {
         >
           <button
             onClick={() => setLightboxIndex(null)}
-            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            className="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
             aria-label="Закрыть"
           >
             <X className="w-5 h-5" />
           </button>
           <img
-            src={certificatePlaceholder}
+            src={certificates[lightboxIndex].src}
             alt={certificates[lightboxIndex].title}
-            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg animate-in fade-in zoom-in-95 duration-200"
+            className="max-w-[92vw] max-h-[80vh] object-contain rounded-lg animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           />
+          <div className="mt-4 text-center text-white max-w-3xl px-4">
+            <p className="font-heading text-lg font-semibold">
+              {certificates[lightboxIndex].title}
+            </p>
+            <p className="text-white/70 text-sm mt-1">
+              {certificates[lightboxIndex].meta}
+            </p>
+          </div>
         </div>
       )}
     </div>
