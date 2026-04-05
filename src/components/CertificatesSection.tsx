@@ -73,19 +73,9 @@ const certificates: CertificateItem[] = [
     src: certificateSrc("12.jpeg"),
   },
   {
-    title: "Свидетельство о членстве в АРППС",
-    meta: "АРППС · 2024",
-    src: certificateSrc("13.jpeg"),
-  },
-  {
     title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
     meta: "Психодемия · 127 часов · 2024",
     src: certificateSrc("14.jpeg"),
-  },
-  {
-    title: "Профессиональная переподготовка: практический психолог",
-    meta: "НАДПО · 2022",
-    src: certificateSrc("15.jpeg"),
   },
   {
     title: "Стратегия формирования здоровых пищевых привычек в семье",
@@ -113,14 +103,24 @@ const certificates: CertificateItem[] = [
     src: certificateSrc("20.jpeg"),
   },
   {
-    title: "Методология работы консультанта-диетолога",
-    meta: "Школа диетологов · 12 ак. часов · 2021",
-    src: certificateSrc("21.jpeg"),
-  },
-  {
     title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
     meta: "Психодемия · 127 часов · 2024",
     src: certificateSrc("22.jpeg"),
+  },
+  {
+    title: "Свидетельство о членстве в АРППС",
+    meta: "АРППС · 2024",
+    src: certificateSrc("13.jpeg"),
+  },
+  {
+    title: "Профессиональная переподготовка: практический психолог",
+    meta: "НАДПО · 2022",
+    src: certificateSrc("15.jpeg"),
+  },
+  {
+    title: "Методология работы консультанта-диетолога",
+    meta: "Школа диетологов · 12 ак. часов · 2021",
+    src: certificateSrc("21.jpeg"),
   },
 ];
 
@@ -184,11 +184,11 @@ const CertificatesSection = () => {
                 className="group text-left flex-shrink-0 w-[72vw] sm:w-[44vw] md:w-[30vw] lg:w-[22vw] xl:w-[18vw] snap-start"
               >
                 <div className="card-surface overflow-hidden h-full transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
-                  <div className="relative overflow-hidden bg-background/60 aspect-[3/4]">
+                  <div className="relative overflow-hidden bg-background/60 aspect-[16/11]">
                     <img
                       src={cert.src}
                       alt={cert.title}
-                      className="absolute inset-0 h-full w-full object-contain p-2 md:p-3"
+                      className="absolute inset-0 h-full w-full object-cover object-top"
                       loading="lazy"
                       decoding="async"
                     />
