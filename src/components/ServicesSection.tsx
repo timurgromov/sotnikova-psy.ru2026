@@ -70,7 +70,7 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
             onClick={onBookClick}
             className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full max-w-sm"
           >
-            Записаться на консультацию
+            Записаться на бесплатную консультацию
           </button>
         </div>
       </AnimatedSection>

@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
@@ -122,6 +122,8 @@ const certificates: CertificateItem[] = [
 const CertificatesSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const scroll = useCallback((direction: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -133,6 +135,35 @@ const CertificatesSection = () => {
       behavior: "smooth",
     });
   }, []);
+
+  const goToPrevious = useCallback(() => {
+    setLightboxIndex((current) =>
+      current === null ? current : (current - 1 + certificates.length) % certificates.length,
+    );
+  }, []);
+
+  const goToNext = useCallback(() => {
+    setLightboxIndex((current) =>
+      current === null ? current : (current + 1) % certificates.length,
+    );
+  }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightboxIndex(null);
+        return;
+      }
+
+      if (event.key === "ArrowLeft") goToPrevious();
+      if (event.key === "ArrowRight") goToNext();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [goToNext, goToPrevious, lightboxIndex]);
 
   return (
     <div className="section-gap">
@@ -212,13 +243,58 @@ const CertificatesSection = () => {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm"
           onClick={() => setLightboxIndex(null)}
+          onTouchStart={(event) => {
+            touchStartX.current = event.touches[0]?.clientX ?? null;
+            touchEndX.current = null;
+          }}
+          onTouchMove={(event) => {
+            touchEndX.current = event.touches[0]?.clientX ?? null;
+          }}
+          onTouchEnd={() => {
+            const startX = touchStartX.current;
+            const endX = touchEndX.current;
+
+            if (startX === null || endX === null) return;
+
+            const delta = startX - endX;
+            if (Math.abs(delta) < 50) return;
+
+            if (delta > 0) {
+              goToNext();
+            } else {
+              goToPrevious();
+            }
+          }}
         >
           <button
-            onClick={() => setLightboxIndex(null)}
-            className="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            onClick={(event) => {
+              event.stopPropagation();
+              goToPrevious();
+            }}
+            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Предыдущий сертификат"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={(event) => {
+              event.stopPropagation();
+              setLightboxIndex(null);
+            }}
+            className="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
             aria-label="Закрыть"
           >
             <X className="w-5 h-5" />
+          </button>
+          <button
+            onClick={(event) => {
+              event.stopPropagation();
+              goToNext();
+            }}
+            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            aria-label="Следующий сертификат"
+          >
+            <ChevronRight className="w-5 h-5" />
           </button>
           <img
             src={certificates[lightboxIndex].src}
