@@ -145,7 +145,7 @@ const CertificatesSection = () => {
             21 подтверждающий документ
           </p>
           <p className="text-xs text-muted-foreground text-center mb-8">
-            CBT-E • EMDR • DBT • клиническая психология
+            CBT-E • EMDR • DBT
           </p>
         </AnimatedSection>
 
@@ -223,17 +223,9 @@ const CertificatesSection = () => {
           <img
             src={certificates[lightboxIndex].src}
             alt={certificates[lightboxIndex].title}
-            className="max-w-[92vw] max-h-[80vh] object-contain rounded-lg animate-in fade-in zoom-in-95 duration-200"
+            className="block max-w-[92vw] max-h-[86vh] object-contain rounded-lg animate-in fade-in zoom-in-95 duration-200 mx-auto"
             onClick={(e) => e.stopPropagation()}
           />
-          <div className="mt-4 text-center text-white max-w-3xl px-4">
-            <p className="font-heading text-lg font-semibold">
-              {certificates[lightboxIndex].title}
-            </p>
-            <p className="text-white/70 text-sm mt-1">
-              {certificates[lightboxIndex].meta}
-            </p>
-          </div>
         </div>
       )}
     </div>
