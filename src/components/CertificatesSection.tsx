@@ -271,7 +271,7 @@ const CertificatesSection = () => {
               event.stopPropagation();
               goToPrevious();
             }}
-            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center text-white shadow-lg transition-colors"
+            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-primary/35 hover:bg-primary/55 flex items-center justify-center text-white/90 shadow-lg transition-colors backdrop-blur-sm"
             aria-label="Предыдущий сертификат"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -291,7 +291,7 @@ const CertificatesSection = () => {
               event.stopPropagation();
               goToNext();
             }}
-            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center text-white shadow-lg transition-colors"
+            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-primary/35 hover:bg-primary/55 flex items-center justify-center text-white/90 shadow-lg transition-colors backdrop-blur-sm"
             aria-label="Следующий сертификат"
           >
             <ChevronRight className="w-5 h-5" />
