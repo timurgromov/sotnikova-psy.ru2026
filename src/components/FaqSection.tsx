@@ -42,8 +42,7 @@ const FaqSection = () => (
           Частые вопросы
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-2xl mx-auto mb-8">
-          Здесь собраны ответы на вопросы, которые чаще всего возникают перед
-          началом работы.
+          Коротко о формате работы и первых шагах.
         </p>
       </AnimatedSection>
 

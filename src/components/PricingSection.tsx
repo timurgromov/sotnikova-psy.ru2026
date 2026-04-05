@@ -34,8 +34,7 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
           Стоимость
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-2xl mx-auto mb-8">
-          Формат работы и стоимость прозрачны заранее, чтобы вы могли спокойно
-          оценить, подходит ли вам этот путь.
+          Формат и стоимость известны заранее.
         </p>
       </AnimatedSection>
 
@@ -48,11 +47,9 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
               }`}
             >
               <div className="flex items-start justify-between gap-4">
-                <div className="max-w-[68%] min-h-[88px]">
-                  <h3 className="font-heading text-lg font-semibold min-h-[88px]">
-                    {item.title}
-                  </h3>
-                </div>
+                <h3 className="font-heading text-lg font-semibold leading-tight max-w-[68%]">
+                  {item.title}
+                </h3>
                 <div className="font-heading text-lg font-bold whitespace-nowrap">
                   {item.price}
                 </div>
@@ -66,18 +63,21 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
                 {item.desc}
               </p>
 
-              {item.accent && (
-                <button
-                  onClick={onBookClick}
-                  className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
-                >
-                  Записаться на бесплатную консультацию
-                </button>
-              )}
             </div>
           </AnimatedSection>
         ))}
       </div>
+
+      <AnimatedSection delay={0.24}>
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={onBookClick}
+            className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full max-w-sm"
+          >
+            Записаться на бесплатную консультацию
+          </button>
+        </div>
+      </AnimatedSection>
 
       <AnimatedSection delay={0.28}>
         <p className="text-muted-foreground text-sm leading-relaxed text-center italic max-w-3xl mx-auto mt-6">

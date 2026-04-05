@@ -42,14 +42,8 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
     <div className="container max-w-4xl mx-auto px-6">
       <AnimatedSection>
         <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6 text-center">
-          С какими вопросами к вам можно обратиться?
+          С чем я помогаю
         </h2>
-      </AnimatedSection>
-
-      <AnimatedSection delay={0.05}>
-        <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-3xl mx-auto mb-6">
-          С чем я могу помочь:
-        </p>
       </AnimatedSection>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -65,18 +59,21 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
                   </li>
                 ))}
               </ul>
-              {i === 2 && (
-                <button
-                  onClick={onBookClick}
-                  className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
-                >
-                  Записаться на консультацию
-                </button>
-              )}
             </div>
           </AnimatedSection>
         ))}
       </div>
+
+      <AnimatedSection delay={0.28}>
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={onBookClick}
+            className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full max-w-sm"
+          >
+            Записаться на консультацию
+          </button>
+        </div>
+      </AnimatedSection>
     </div>
   </div>
 );

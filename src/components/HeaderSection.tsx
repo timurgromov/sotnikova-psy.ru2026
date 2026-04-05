@@ -10,7 +10,6 @@ const navItems = [
   { label: "Подход", href: "#approach" },
   { label: "Стоимость", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
-  { label: "Контакты", href: "#contacts" },
 ];
 
 const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
