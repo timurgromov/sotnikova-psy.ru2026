@@ -27,7 +27,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
               className="font-heading font-semibold text-sm md:text-base tracking-tight flex flex-col leading-tight"
             >
               <span>Анастасия Сотникова</span>
-              <span className="text-[11px] font-normal text-muted-foreground md:hidden">
+              <span className="text-[11px] md:text-xs font-normal text-muted-foreground">
                 Психолог
               </span>
             </a>
