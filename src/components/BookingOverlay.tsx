@@ -6,6 +6,9 @@ interface BookingOverlayProps {
   onClose: () => void;
 }
 
+const maxUrl =
+  "https://max.ru/u/f9LHodD0cOKA2AvcWg4u-wPXy8WBXgGhmXVa2fayy94L3qvhN16LQMN47No";
+
 const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
   <AnimatePresence>
     {open && (
@@ -24,7 +27,7 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
           className="w-full max-w-md mx-6 text-center"
         >
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Запишитесь на бесплатную встречу
+            Запишитесь на диагностику
           </h2>
           <p className="text-primary-foreground/80 text-sm mb-8 leading-relaxed">
             Встреча-знакомство (15–20 минут), чтобы познакомиться и понять, подходим ли мы друг другу.
@@ -46,6 +49,14 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
               className="block w-full bg-card text-foreground px-6 py-4 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
             >
               Написать в WhatsApp
+            </a>
+            <a
+              href={maxUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-card text-foreground px-6 py-4 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              Написать в Max
             </a>
           </div>
 

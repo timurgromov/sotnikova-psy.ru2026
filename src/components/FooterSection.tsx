@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 
+const maxUrl =
+  "https://max.ru/u/f9LHodD0cOKA2AvcWg4u-wPXy8WBXgGhmXVa2fayy94L3qvhN16LQMN47No";
+
 const FooterSection = () => (
   <footer id="contacts" className="py-12 border-t border-border">
     <div className="container max-w-2xl mx-auto px-6 text-center">
@@ -29,6 +32,14 @@ const FooterSection = () => (
           className="hover:text-foreground transition-colors"
         >
           WhatsApp
+        </a>
+        <a
+          href={maxUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-foreground transition-colors"
+        >
+          Max
         </a>
       </div>
       <div className="mt-6">
