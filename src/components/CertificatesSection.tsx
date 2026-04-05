@@ -2,13 +2,10 @@ import { useCallback, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
-type CertificateOrientation = "portrait" | "landscape";
-
 type CertificateItem = {
   title: string;
   meta: string;
   src: string;
-  orientation: CertificateOrientation;
 };
 
 const certificateSrc = (fileName: string) =>
@@ -19,133 +16,111 @@ const certificates: CertificateItem[] = [
     title: "Свидетельство о членстве в АРППС",
     meta: "АРППС · 2024",
     src: certificateSrc("1.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
     meta: "Психодемия · 127 часов · 2024",
     src: certificateSrc("2.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Профессиональная переподготовка: практический психолог",
     meta: "НАДПО · 2022",
     src: certificateSrc("3.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Психотерапия расстройств пищевого поведения: продвинутый курс",
     meta: "Чистые Когниции · 40 часов · 2025",
     src: certificateSrc("4.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Базовый тренинг EMDR 1 и 2 модуль",
     meta: "EMDR Europe · 72 часа · 2025",
     src: certificateSrc("5.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Программа подготовки в Школе диетологов",
     meta: "Школа диетологов · 16 модулей",
     src: certificateSrc("6.jpg"),
-    orientation: "landscape",
   },
   {
     title: "Психотерапия РПП: продвинутый курс",
     meta: "Школа ЧК · 40 часов · 2025",
     src: certificateSrc("7.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Поведенческая психотерапия в клинической практике",
     meta: "Чистые Когниции · 33 часа · 2024/2025",
     src: certificateSrc("8.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Деньги и предназначение",
     meta: "Институт практической онлайн психологии · 54 часа · 2023",
     src: certificateSrc("9.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "X Всероссийская научно-практическая конференция EMDR/ДПДГ России",
     meta: "Москва · 8-10 ноября 2024",
     src: certificateSrc("10.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Осознанное питание",
     meta: "Институт практической онлайн психологии · 68 часов · 2023",
     src: certificateSrc("11.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Деньги и предназначение",
     meta: "Институт практической онлайн психологии · 54 часа · 2023",
     src: certificateSrc("12.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Свидетельство о членстве в АРППС",
     meta: "АРППС · 2024",
     src: certificateSrc("13.jpeg"),
-    orientation: "portrait",
   },
   {
     title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
     meta: "Психодемия · 127 часов · 2024",
     src: certificateSrc("14.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Профессиональная переподготовка: практический психолог",
     meta: "НАДПО · 2022",
     src: certificateSrc("15.jpeg"),
-    orientation: "portrait",
   },
   {
     title: "Стратегия формирования здоровых пищевых привычек в семье",
     meta: "Школа диетологов · 10 ак. часов · 2021",
     src: certificateSrc("16.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Диетотерапия при аллергии и непереносимости глютена",
     meta: "Школа диетологов · 3 ак. часа · 2021",
     src: certificateSrc("17.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Молочная продукция",
     meta: "Школа диетологов · 3 ак. часа · 2021",
     src: certificateSrc("18.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Fitness for pregnant women",
     meta: "Start Fit · 5 часов · 2019",
     src: certificateSrc("19.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Сахар и сахарозаменители",
     meta: "Школа диетологов · 5 ак. часов · 2021",
     src: certificateSrc("20.jpeg"),
-    orientation: "landscape",
   },
   {
     title: "Методология работы консультанта-диетолога",
     meta: "Школа диетологов · 12 ак. часов · 2021",
     src: certificateSrc("21.jpeg"),
-    orientation: "portrait",
   },
   {
     title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
     meta: "Психодемия · 127 часов · 2024",
     src: certificateSrc("22.jpeg"),
-    orientation: "landscape",
   },
 ];
 
@@ -206,27 +181,23 @@ const CertificatesSection = () => {
                 key={`${cert.src}-${i}`}
                 type="button"
                 onClick={() => setLightboxIndex(i)}
-                className="group text-left flex-shrink-0 w-[82vw] sm:w-[58vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
+                className="group text-left flex-shrink-0 w-[72vw] sm:w-[44vw] md:w-[30vw] lg:w-[22vw] xl:w-[18vw] snap-start"
               >
                 <div className="card-surface overflow-hidden h-full transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
-                  <div
-                    className={`relative overflow-hidden bg-background/60 ${
-                      cert.orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
-                    }`}
-                  >
+                  <div className="relative overflow-hidden bg-background/60 aspect-[3/4]">
                     <img
                       src={cert.src}
                       alt={cert.title}
-                      className="absolute inset-0 h-full w-full object-contain p-3"
+                      className="absolute inset-0 h-full w-full object-contain p-2 md:p-3"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm font-medium text-foreground leading-snug min-h-[3rem]">
+                  <div className="p-3 md:p-4">
+                    <p className="text-sm font-medium text-foreground leading-snug min-h-[2.5rem]">
                       {cert.title}
                     </p>
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="text-xs text-muted-foreground mt-1 leading-snug">
                       {cert.meta}
                     </p>
                   </div>
