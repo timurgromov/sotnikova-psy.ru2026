@@ -1,20 +1,28 @@
-import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 
 interface PricingSectionProps {
   onBookClick: () => void;
 }
 
-const pricingRows = [
+const pricingItems = [
+  {
+    title: "Встреча-знакомство",
+    duration: "15-20 минут",
+    price: "Бесплатно",
+    desc: "Короткая онлайн-встреча, чтобы познакомиться, задать вопросы и понять, комфортно ли вам начинать работу.",
+    accent: true,
+  },
   {
     title: "1 сессия",
     duration: "55 минут",
     price: "5 000 ₽",
+    desc: "Основной формат регулярной терапии с бережной и структурной работой над запросом.",
   },
   {
     title: "Диагностическая сессия",
     duration: "90 минут",
     price: "5 000 ₽",
+    desc: "Подходит, если важно глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
   },
 ];
 
@@ -26,68 +34,56 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
           Стоимость
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-2xl mx-auto mb-8">
-          Прозрачный формат работы без скрытых условий. Сначала можно спокойно
-          познакомиться, а затем решить, подходит ли вам регулярная терапия.
+          Формат работы и стоимость прозрачны заранее, чтобы вы могли спокойно
+          оценить, подходит ли вам этот путь.
         </p>
       </AnimatedSection>
 
-      <AnimatedSection delay={0.06}>
-        <div className="card-surface border border-primary/15 bg-primary/5 px-8 py-7 md:px-12 text-center">
-          <div className="font-heading text-xl md:text-2xl font-bold">
-            Запишитесь на бесплатную консультацию
-          </div>
-          <p className="text-muted-foreground text-base md:text-lg mt-2">
-            Время 15–20 минут
-          </p>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection delay={0.12}>
-        <div className="mt-8 space-y-5">
-          {pricingRows.map((row) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {pricingItems.map((item, i) => (
+          <AnimatedSection key={item.title} delay={i * 0.08}>
             <div
-              key={row.title}
-              className="flex items-end gap-3 text-lg md:text-2xl leading-tight"
+              className={`card-surface p-7 h-full flex flex-col ${
+                item.accent ? "border border-primary/20 bg-primary/5" : ""
+              }`}
             >
-              <div className="shrink-0 font-medium text-foreground">
-                {row.title} ({row.duration})
+              <div className="flex items-start justify-between gap-4">
+                <div className="max-w-[68%] min-h-[88px]">
+                  <h3 className="font-heading text-lg font-semibold min-h-[88px]">
+                    {item.title}
+                  </h3>
+                </div>
+                <div className="font-heading text-lg font-bold whitespace-nowrap">
+                  {item.price}
+                </div>
               </div>
-              <div className="flex-1 border-b border-dotted border-foreground/30 translate-y-[-0.25em]" />
-              <div className="shrink-0 font-medium text-foreground whitespace-nowrap">
-                {row.price}
-              </div>
+
+              <p className="text-muted-foreground text-sm mt-1">
+                {item.duration}
+              </p>
+
+              <p className="text-muted-foreground text-sm leading-relaxed flex-1 mt-6">
+                {item.desc}
+              </p>
+
+              {item.accent && (
+                <button
+                  onClick={onBookClick}
+                  className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
+                >
+                  Записаться на бесплатную консультацию
+                </button>
+              )}
             </div>
-          ))}
-        </div>
-      </AnimatedSection>
+          </AnimatedSection>
+        ))}
+      </div>
 
-      <AnimatedSection delay={0.18}>
-        <p className="text-muted-foreground text-sm md:text-base leading-relaxed italic max-w-3xl mt-8">
-          Оплата осуществляется в рублях.
-          <br />
-          Возможны альтернативные способы расчёта, они обсуждаются
-          индивидуально.
+      <AnimatedSection delay={0.28}>
+        <p className="text-muted-foreground text-sm leading-relaxed text-center italic max-w-3xl mx-auto mt-6">
+          Оплата осуществляется в рублях. Если нужен другой формат расчёта,
+          это можно обсудить индивидуально.
         </p>
-      </AnimatedSection>
-
-      <AnimatedSection delay={0.24}>
-        <div className="card-surface border border-primary/15 bg-primary/10 px-8 py-7 md:px-12 mt-8 text-center">
-          <button
-            onClick={onBookClick}
-            className="font-heading text-xl md:text-2xl font-bold text-foreground hover:opacity-80 transition-opacity"
-          >
-            Записаться на сессию
-          </button>
-          <p className="text-muted-foreground text-sm md:text-base mt-3">
-            Нажимая на кнопку, вы соглашаетесь с{" "}
-            <Link
-              to="/privacy"
-              className="underline underline-offset-4 hover:text-foreground transition-colors"
-            >
-              Политикой конфиденциальности
-            </Link>
-          </p>
-        </div>
       </AnimatedSection>
     </div>
   </div>
