@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { X } from "lucide-react";
+import { useCallback, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 type CertificateOrientation = "portrait" | "landscape";
@@ -150,7 +150,19 @@ const certificates: CertificateItem[] = [
 ];
 
 const CertificatesSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const scroll = useCallback((direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const firstCard = scrollRef.current.firstElementChild as HTMLElement | null;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 320;
+
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -cardWidth * 2 : cardWidth * 2,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div className="section-gap">
@@ -167,39 +179,61 @@ const CertificatesSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {certificates.map((cert, i) => (
-            <button
-              key={`${cert.src}-${i}`}
-              type="button"
-              onClick={() => setLightboxIndex(i)}
-              className="group text-left"
-            >
-              <div className="card-surface overflow-hidden h-full transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
-                <div
-                  className={`relative overflow-hidden bg-background/60 ${
-                    cert.orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
-                  }`}
-                >
-                  <img
-                    src={cert.src}
-                    alt={cert.title}
-                    className="absolute inset-0 h-full w-full object-contain p-3"
-                    loading="lazy"
-                    decoding="async"
-                  />
+        <div className="relative group">
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 rounded-full bg-card shadow-md flex items-center justify-center text-foreground/60 hover:text-foreground transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+            aria-label="Назад"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 rounded-full bg-card shadow-md flex items-center justify-center text-foreground/60 hover:text-foreground transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+            aria-label="Вперёд"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 scrollbar-hide"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {certificates.map((cert, i) => (
+              <button
+                key={`${cert.src}-${i}`}
+                type="button"
+                onClick={() => setLightboxIndex(i)}
+                className="group text-left flex-shrink-0 w-[82vw] sm:w-[58vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
+              >
+                <div className="card-surface overflow-hidden h-full transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
+                  <div
+                    className={`relative overflow-hidden bg-background/60 ${
+                      cert.orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
+                    }`}
+                  >
+                    <img
+                      src={cert.src}
+                      alt={cert.title}
+                      className="absolute inset-0 h-full w-full object-contain p-3"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-sm font-medium text-foreground leading-snug min-h-[3rem]">
+                      {cert.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {cert.meta}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <p className="text-sm font-medium text-foreground leading-snug min-h-[3rem]">
-                    {cert.title}
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {cert.meta}
-                  </p>
-                </div>
-              </div>
-            </button>
-          ))}
+              </button>
+            ))}
+          </div>
         </div>
 
         <p className="text-xs text-muted-foreground text-center mt-4">
