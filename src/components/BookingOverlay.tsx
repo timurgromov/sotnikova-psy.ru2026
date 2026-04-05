@@ -20,20 +20,21 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-0 z-50 flex items-center justify-center bg-primary"
       >
+        <button
+          onClick={onClose}
+          className="fixed top-6 right-6 z-[60] inline-flex items-center justify-center w-11 h-11 rounded-full bg-card text-foreground shadow-sm hover:opacity-90 transition-opacity"
+          aria-label="Закрыть попап"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative w-full max-w-md mx-6 text-center pt-12"
+          className="w-full max-w-md mx-6 text-center"
         >
-          <button
-            onClick={onClose}
-            className="absolute top-0 right-0 inline-flex items-center justify-center w-11 h-11 rounded-full bg-card text-foreground shadow-sm hover:opacity-90 transition-opacity"
-            aria-label="Закрыть попап"
-          >
-            <X className="w-5 h-5" />
-          </button>
 
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
             Запишитесь на диагностику
