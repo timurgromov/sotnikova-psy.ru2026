@@ -2,7 +2,6 @@ import { useState } from "react";
 import HeaderSection from "@/components/HeaderSection";
 import HeroSection from "@/components/HeroSection";
 import PathSection from "@/components/PathSection";
-import TherapistAvatar from "@/components/TherapistAvatar";
 import BentoSection from "@/components/BentoSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
@@ -28,11 +27,10 @@ const Index = () => {
         <HeroSection onBookClick={handleBookClick} />
         <ServicesSection onBookClick={handleBookClick} />
         <BenefitsSection />
-        <ExpertiseSection />
         <AboutSection />
         <BentoSection />
+        <ExpertiseSection />
         <PathSection />
-        <TherapistAvatar />
         <FaqSection />
         <PricingSection onBookClick={handleBookClick} />
         <CertificatesSection />
