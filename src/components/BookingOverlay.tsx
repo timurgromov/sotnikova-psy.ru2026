@@ -37,7 +37,7 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
         >
 
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Запишитесь на диагностику
+            Запишитесь на бесплатную консультацию
           </h2>
           <p className="text-primary-foreground/80 text-sm mb-8 leading-relaxed">
             Встреча-знакомство (15–20 минут), чтобы познакомиться и понять, подходим ли мы друг другу.
