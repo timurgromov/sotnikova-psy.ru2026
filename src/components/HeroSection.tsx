@@ -9,7 +9,7 @@ interface HeroSectionProps {
 const HeroSection = ({ onBookClick }: HeroSectionProps) => (
   <section
     id="top"
-    className="relative min-h-[100dvh] flex items-start justify-center lg:items-center overflow-hidden pt-28 md:pt-32"
+    className="relative flex items-start justify-center overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 lg:min-h-[100dvh] lg:items-center lg:pb-0"
   >
     {/* Blur blobs */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
