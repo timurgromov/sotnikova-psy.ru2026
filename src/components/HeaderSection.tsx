@@ -28,7 +28,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
             <button
               type="button"
               onClick={() => scrollToSection("top")}
-              className="font-heading font-semibold text-sm md:text-base tracking-tight flex flex-col leading-tight"
+              className="font-heading font-semibold text-sm md:text-base tracking-tight flex flex-col items-start text-left leading-tight"
             >
               <span>Анастасия Сотникова</span>
               <span className="text-[11px] md:text-xs font-normal text-muted-foreground">
