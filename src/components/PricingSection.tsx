@@ -38,7 +38,7 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
         </p>
       </AnimatedSection>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {pricingItems.map((item, i) => (
           <AnimatedSection key={item.title} delay={i * 0.08}>
             <div
@@ -46,18 +46,18 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
                 item.accent ? "border border-primary/20 bg-primary/5" : ""
               }`}
             >
-              <div className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-x-4">
-                <div className="w-full sm:min-h-[4.5rem]">
+              <div className="flex flex-col gap-2 xl:grid xl:grid-cols-[minmax(0,1fr)_auto] xl:items-start xl:gap-x-4">
+                <div className="w-full xl:min-h-[4.5rem]">
                   <h3 className="font-heading text-lg font-semibold leading-tight max-w-none">
                     {item.title}
                   </h3>
                 </div>
-                <div className="font-heading text-base sm:text-lg font-bold whitespace-nowrap">
+                <div className="font-heading text-base xl:text-lg font-bold whitespace-nowrap">
                   {item.price}
                 </div>
               </div>
 
-              <p className="text-muted-foreground text-sm mt-2 sm:mt-1">
+              <p className="text-muted-foreground text-sm mt-2 xl:mt-1">
                 {item.duration}
               </p>
 
