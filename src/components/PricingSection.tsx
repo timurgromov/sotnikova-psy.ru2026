@@ -1,11 +1,13 @@
+import type { BookingType } from "./BookingOverlay";
 import AnimatedSection from "./AnimatedSection";
 
 interface PricingSectionProps {
-  onBookClick: () => void;
+  onBookClick: (bookingType?: BookingType) => void;
 }
 
 const pricingItems = [
   {
+    bookingType: "free" as BookingType,
     title: "Встреча-знакомство",
     duration: "15-20 минут",
     price: "Бесплатно",
@@ -13,12 +15,14 @@ const pricingItems = [
     accent: true,
   },
   {
+    bookingType: null,
     title: "1 сессия",
     duration: "55 минут",
     price: "5 000 ₽",
     desc: "Основной формат регулярной терапии с бережной и структурной работой над запросом.",
   },
   {
+    bookingType: "diagnostic" as BookingType,
     title: "Диагностическая сессия",
     duration: "90 минут",
     price: "5 000 ₽",
@@ -64,24 +68,20 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
               <p className="text-muted-foreground text-sm leading-relaxed flex-1 mt-6">
                 {item.desc}
               </p>
-
+              {item.bookingType && (
+                <button
+                  onClick={() => onBookClick(item.bookingType)}
+                  className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
+                >
+                  Записаться
+                </button>
+              )}
             </div>
           </AnimatedSection>
         ))}
       </div>
 
       <AnimatedSection delay={0.24}>
-        <div className="mt-6 flex justify-center">
-          <button
-            onClick={onBookClick}
-            className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full max-w-sm"
-          >
-            Записаться на бесплатную консультацию
-          </button>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection delay={0.28}>
         <p className="text-muted-foreground text-sm leading-relaxed text-center italic max-w-3xl mx-auto mt-6">
           Оплата осуществляется в рублях. Если нужен другой формат расчёта,
           это можно обсудить индивидуально.

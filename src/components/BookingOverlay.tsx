@@ -2,15 +2,37 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
+export type BookingType = "free" | "diagnostic";
+
 interface BookingOverlayProps {
   open: boolean;
   onClose: () => void;
+  bookingType: BookingType;
 }
 
 const maxUrl =
   "https://max.ru/u/f9LHodD0cOKA2AvcWg4u-wPXy8WBXgGhmXVa2fayy94L3qvhN16LQMN47No";
 
-const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
+const bookingCopy: Record<
+  BookingType,
+  {
+    title: string;
+    description: string;
+  }
+> = {
+  free: {
+    title: "Запишитесь на бесплатную сессию",
+    description:
+      "Встреча-знакомство (15–20 минут), чтобы познакомиться и понять, подходим ли мы друг другу.",
+  },
+  diagnostic: {
+    title: "Запишитесь на диагностическую сессию",
+    description:
+      "Диагностическая встреча (90 минут), чтобы глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
+  },
+};
+
+const BookingOverlay = ({ open, onClose, bookingType }: BookingOverlayProps) => (
   <AnimatePresence>
     {open && (
       <motion.div
@@ -37,10 +59,10 @@ const BookingOverlay = ({ open, onClose }: BookingOverlayProps) => (
         >
 
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Запишитесь на бесплатную консультацию
+            {bookingCopy[bookingType].title}
           </h2>
           <p className="text-primary-foreground/80 text-sm mb-8 leading-relaxed">
-            Встреча-знакомство (15–20 минут), чтобы познакомиться и понять, подходим ли мы друг другу.
+            {bookingCopy[bookingType].description}
           </p>
 
           <div className="space-y-3">

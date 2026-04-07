@@ -11,13 +11,17 @@ import CertificatesSection from "@/components/CertificatesSection";
 import AboutSection from "@/components/AboutSection";
 import ConfidentialitySection from "@/components/ConfidentialitySection";
 import FooterSection from "@/components/FooterSection";
-import BookingOverlay from "@/components/BookingOverlay";
+import BookingOverlay, { type BookingType } from "@/components/BookingOverlay";
 import FloatingContact from "@/components/FloatingContact";
 
 const Index = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [bookingType, setBookingType] = useState<BookingType>("free");
 
-  const handleBookClick = () => setBookingOpen(true);
+  const handleBookClick = (type: BookingType = "free") => {
+    setBookingType(type);
+    setBookingOpen(true);
+  };
 
   return (
     <>
@@ -37,7 +41,11 @@ const Index = () => {
       </main>
 
       <FloatingContact onBookClick={handleBookClick} />
-      <BookingOverlay open={bookingOpen} onClose={() => setBookingOpen(false)} />
+      <BookingOverlay
+        open={bookingOpen}
+        bookingType={bookingType}
+        onClose={() => setBookingOpen(false)}
+      />
     </>
   );
 };
