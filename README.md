@@ -72,13 +72,20 @@ To connect a domain, navigate to Project > Settings > Domains and click Connect 
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
 
-## Agent workflow rules
+## Правила работы агента
 
-For any repository changes made by an agent, the workflow must include all of these steps in the same task:
+Для этого проекта агент должен работать так по умолчанию:
 
-1. Make the requested changes.
-2. Verify the result locally when feasible.
-3. Create a git commit for the relevant files.
-4. Push the branch to the remote.
+1. Внести изменения в исходники.
+2. Проверить результат локально, если это возможно.
+3. Сделать `git commit` в исходной ветке с изменениями задачи.
+4. Сделать `git push` исходной ветки в GitHub.
+5. Собрать актуальную версию сайта.
+6. Обновить ветку `gh-pages` собранным сайтом.
+7. Сделать `git commit` в `gh-pages` и `git push` в GitHub.
 
-Do not stop after local edits if the task is complete and the repository is in a pushable state.
+Правило проекта:
+
+- После завершения задачи изменения должны быть не только сохранены в исходниках, но и опубликованы в GitHub Pages.
+- Не останавливаться на локальных правках или только на пуше исходной ветки, если задача подразумевает обновление сайта.
+- Если нет явного запрета от пользователя, рабочий цикл считается завершённым только после `commit + push` исходников и `deploy` в `gh-pages`.
