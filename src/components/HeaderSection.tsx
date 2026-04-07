@@ -1,46 +1,51 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 
 interface HeaderSectionProps {
   onBookClick: () => void;
 }
 
 const navItems = [
-  { label: "Обо мне", href: "#about" },
-  { label: "Подход", href: "#approach" },
-  { label: "Стоимость", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Обо мне", sectionId: "about" },
+  { label: "Стоимость", sectionId: "pricing" },
+  { label: "FAQ", sectionId: "faq" },
 ];
 
 const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
   const [open, setOpen] = useState(false);
 
-  const handleNavClick = () => setOpen(false);
+  const handleNavClick = (sectionId: string) => {
+    setOpen(false);
+    scrollToSection(sectionId);
+  };
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 pt-4">
         <div className="rounded-[28px] md:rounded-full border border-border/80 bg-background/85 backdrop-blur-md shadow-sm px-4 md:px-6 py-3">
           <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
-            <a
-              href="#top"
+            <button
+              type="button"
+              onClick={() => scrollToSection("top")}
               className="font-heading font-semibold text-sm md:text-base tracking-tight flex flex-col leading-tight"
             >
               <span>Анастасия Сотникова</span>
               <span className="text-[11px] md:text-xs font-normal text-muted-foreground">
                 Психолог
               </span>
-            </a>
+            </button>
 
             <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground justify-self-center">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
+                <button
+                  key={item.sectionId}
+                  type="button"
+                  onClick={() => scrollToSection(item.sectionId)}
                   className="hover:text-foreground transition-colors"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </nav>
 
@@ -72,14 +77,14 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
             <div className="md:hidden mt-3 rounded-[24px] border border-border/70 bg-background/95 px-4 py-4 shadow-md">
               <nav className="flex flex-col gap-4 text-sm">
                 {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={handleNavClick}
+                  <button
+                    key={item.sectionId}
+                    type="button"
+                    onClick={() => handleNavClick(item.sectionId)}
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </button>
                 ))}
               </nav>
 

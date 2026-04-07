@@ -71,3 +71,14 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Agent workflow rules
+
+For any repository changes made by an agent, the workflow must include all of these steps in the same task:
+
+1. Make the requested changes.
+2. Verify the result locally when feasible.
+3. Create a git commit for the relevant files.
+4. Push the branch to the remote.
+
+Do not stop after local edits if the task is complete and the repository is in a pushable state.

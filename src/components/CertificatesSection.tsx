@@ -38,8 +38,8 @@ const certificates: CertificateItem[] = [
     src: certificateSrc("5.jpeg"),
   },
   {
-    title: "Программа подготовки в Школе диетологов",
-    meta: "Школа диетологов · 16 модулей",
+    title: "международная академия дополнительного профессионального образования и EDPRO",
+    meta: "EDPRO · 88 ак. часов · 2023",
     src: certificateSrc("6.jpg"),
   },
   {
@@ -51,11 +51,6 @@ const certificates: CertificateItem[] = [
     title: "Поведенческая психотерапия в клинической практике",
     meta: "Чистые Когниции · 33 часа · 2024/2025",
     src: certificateSrc("8.jpeg"),
-  },
-  {
-    title: "Деньги и предназначение",
-    meta: "Институт практической онлайн психологии · 54 часа · 2023",
-    src: certificateSrc("9.jpeg"),
   },
   {
     title: "X Всероссийская научно-практическая конференция EMDR/ДПДГ России",
@@ -108,8 +103,9 @@ const certificates: CertificateItem[] = [
     src: certificateSrc("22.jpeg"),
   },
   {
-    title: "Свидетельство о членстве в АРППС",
-    meta: "АРППС · 2024",
+    title:
+      "основы диетологии и нутрициологии, консультирование в вопросах рационального питания и коррекции веса",
+    meta: "Школа диетологов · 82 ак. часа · 2021",
     src: certificateSrc("13.jpeg"),
   },
   {
@@ -173,7 +169,7 @@ const CertificatesSection = () => {
             Дипломы и сертификаты
           </h2>
           <p className="text-sm font-medium text-foreground/80 text-center mb-1">
-            21 подтверждающий документ
+            20 подтверждающих документов
           </p>
           <p className="text-xs text-muted-foreground text-center mb-8">
             CBT-E • EMDR • DBT

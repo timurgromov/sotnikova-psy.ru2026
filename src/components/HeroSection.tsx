@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { scrollToSection } from "@/lib/utils";
 import heroPortrait from "../../photos-review/photo-02.jpeg";
 
 interface HeroSectionProps {
@@ -65,12 +66,13 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
             >
               Записаться на встречу-знакомство
             </button>
-            <a
-              href="#about"
+            <button
+              type="button"
+              onClick={() => scrollToSection("about")}
               className="text-foreground/70 hover:text-foreground transition-colors text-sm font-medium"
             >
               Узнать больше ↓
-            </a>
+            </button>
           </motion.div>
         </div>
 
