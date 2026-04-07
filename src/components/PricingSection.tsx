@@ -46,18 +46,18 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
                 item.accent ? "border border-primary/20 bg-primary/5" : ""
               }`}
             >
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4">
-                <div className="min-h-[4.5rem] md:min-h-[4.5rem]">
-                  <h3 className="font-heading text-lg font-semibold leading-tight max-w-[68%]">
+              <div className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-x-4">
+                <div className="w-full sm:min-h-[4.5rem]">
+                  <h3 className="font-heading text-lg font-semibold leading-tight max-w-none">
                     {item.title}
                   </h3>
                 </div>
-                <div className="font-heading text-lg font-bold whitespace-nowrap">
+                <div className="font-heading text-base sm:text-lg font-bold whitespace-nowrap">
                   {item.price}
                 </div>
               </div>
 
-              <p className="text-muted-foreground text-sm mt-1">
+              <p className="text-muted-foreground text-sm mt-2 sm:mt-1">
                 {item.duration}
               </p>
 
