@@ -81,7 +81,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
                     key={item.sectionId}
                     type="button"
                     onClick={() => handleNavClick(item.sectionId)}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="w-full text-left text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {item.label}
                   </button>
