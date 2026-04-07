@@ -1,9 +1,10 @@
+import type { BookingType } from "./BookingOverlay";
 import { motion } from "framer-motion";
 import { scrollToSection } from "@/lib/utils";
 import heroPortrait from "../../photos-review/photo-02.jpeg";
 
 interface HeroSectionProps {
-  onBookClick: () => void;
+  onBookClick: (bookingType?: BookingType) => void;
 }
 
 const HeroSection = ({ onBookClick }: HeroSectionProps) => (
@@ -61,7 +62,8 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
             className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
           >
             <button
-              onClick={onBookClick}
+              type="button"
+              onClick={() => onBookClick("free")}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-heading font-semibold text-base hover:opacity-90 transition-opacity"
             >
               Записаться на встречу-знакомство

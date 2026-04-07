@@ -1,9 +1,10 @@
+import type { BookingType } from "./BookingOverlay";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
 
 interface HeaderSectionProps {
-  onBookClick: () => void;
+  onBookClick: (bookingType?: BookingType) => void;
 }
 
 const navItems = [
@@ -57,7 +58,8 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
                 +7 977 850-08-15
               </a>
               <button
-                onClick={onBookClick}
+                type="button"
+                onClick={() => onBookClick("free")}
                 className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
               >
                 Записаться
@@ -96,9 +98,10 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
                   +7 977 850-08-15
                 </a>
                 <button
+                  type="button"
                   onClick={() => {
                     setOpen(false);
-                    onBookClick();
+                    onBookClick("free");
                   }}
                   className="bg-primary text-primary-foreground px-5 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
                 >

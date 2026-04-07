@@ -1,7 +1,8 @@
+import type { BookingType } from "./BookingOverlay";
 import AnimatedSection from "./AnimatedSection";
 
 interface ServicesSectionProps {
-  onBookClick: () => void;
+  onBookClick: (bookingType?: BookingType) => void;
 }
 
 const concerns = [
@@ -67,7 +68,8 @@ const ServicesSection = ({ onBookClick }: ServicesSectionProps) => (
       <AnimatedSection delay={0.28}>
         <div className="mt-6 flex justify-center">
           <button
-            onClick={onBookClick}
+            type="button"
+            onClick={() => onBookClick("free")}
             className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full max-w-sm"
           >
             Записаться на бесплатную консультацию
