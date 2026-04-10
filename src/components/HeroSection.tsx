@@ -2,6 +2,7 @@ import type { BookingType } from "./BookingOverlay";
 import { motion } from "framer-motion";
 import { scrollToSection } from "@/lib/utils";
 import heroPortrait from "../../photos-review/photo-02.jpeg";
+import heroPortraitMobile from "../../photos-review/photo-02-mobile-square.jpeg";
 
 interface HeroSectionProps {
   onBookClick: (bookingType?: BookingType) => void;
@@ -85,12 +86,15 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
           transition={{ duration: 0.8, delay: 0.5 }}
           className="md:w-[45%] flex-shrink-0"
         >
-          <img
-            src={heroPortrait}
-            alt="Анастасия Сотникова — психолог"
-            className="w-64 h-64 md:w-full md:h-auto md:aspect-[3/4] rounded-[1.5rem] object-cover object-[50%_18%] shadow-sm mx-auto"
-            loading="eager"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcSet={heroPortraitMobile} />
+            <img
+              src={heroPortrait}
+              alt="Анастасия Сотникова — психолог"
+              className="w-64 h-64 md:w-full md:h-auto md:aspect-[3/4] rounded-[1.5rem] object-cover shadow-sm mx-auto"
+              loading="eager"
+            />
+          </picture>
         </motion.div>
       </div>
     </div>
