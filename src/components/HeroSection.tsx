@@ -88,7 +88,7 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
           <img
             src={heroPortrait}
             alt="Анастасия Сотникова — психолог"
-            className="w-64 h-64 md:w-full md:h-auto md:aspect-[3/4] rounded-[1.5rem] object-cover shadow-sm mx-auto"
+            className="w-64 h-64 md:w-full md:h-auto md:aspect-[3/4] rounded-[1.5rem] object-cover object-[50%_18%] shadow-sm mx-auto"
             loading="eager"
           />
         </motion.div>
