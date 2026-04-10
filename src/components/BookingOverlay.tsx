@@ -40,25 +40,30 @@ const BookingOverlay = ({ open, onClose, bookingType }: BookingOverlayProps) => 
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-primary"
+        className="fixed inset-0 z-50 overflow-y-auto bg-black/25 px-4 py-6 backdrop-blur-sm md:px-6 md:py-10"
       >
-        <button
-          onClick={onClose}
-          className="fixed top-6 right-6 z-[60] inline-flex items-center justify-center w-11 h-11 rounded-full bg-card text-foreground shadow-sm hover:opacity-90 transition-opacity"
-          aria-label="Закрыть попап"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="w-full max-w-md mx-6 text-center"
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.98 }}
+          transition={{ duration: 0.5, delay: 0.12 }}
+          className="relative mx-auto mt-[8vh] w-full max-w-md rounded-[2rem] bg-primary px-6 py-8 text-center shadow-2xl md:mt-[10vh] md:px-8 md:py-10"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="booking-title"
         >
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-card text-foreground shadow-sm transition-opacity hover:opacity-90"
+            aria-label="Закрыть попап"
+          >
+            <X className="h-5 w-5" />
+          </button>
 
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+          <h2
+            id="booking-title"
+            className="font-heading mb-4 text-2xl font-bold text-primary-foreground md:text-3xl"
+          >
             {bookingCopy[bookingType].title}
           </h2>
           <p className="text-primary-foreground/80 text-sm mb-8 leading-relaxed">
@@ -102,7 +107,7 @@ const BookingOverlay = ({ open, onClose, bookingType }: BookingOverlayProps) => 
 
           <button
             onClick={onClose}
-            className="mt-8 text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors"
+            className="mt-8 text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground"
           >
             ← Вернуться на сайт
           </button>
