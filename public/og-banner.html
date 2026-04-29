@@ -23,7 +23,7 @@
       body {
         margin: 0;
         width: 1200px;
-        height: 717px;
+        height: 630px;
         overflow: hidden;
         background:
           radial-gradient(circle at 10% 12%, rgba(234, 223, 208, 0.52), transparent 28%),
@@ -38,8 +38,8 @@
       .canvas {
         position: relative;
         width: 1200px;
-        height: 717px;
-        padding: 72px 88px;
+        height: 630px;
+        padding: 58px 78px;
         background:
           radial-gradient(circle at 10% 12%, rgba(234, 223, 208, 0.52), transparent 28%),
           radial-gradient(circle at 88% 86%, rgba(219, 232, 224, 0.64), transparent 22%),
@@ -48,56 +48,65 @@
 
       .badge {
         position: absolute;
-        top: 58px;
-        right: 92px;
-        width: 334px;
-        height: 334px;
-        border-radius: 50%;
-        background: rgba(157, 185, 168, 0.14);
+        top: 52px;
+        right: 78px;
+        width: 322px;
+        height: 322px;
+        border-radius: 42px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(157, 185, 168, 0.18), rgba(157, 185, 168, 0.1)),
+          #ece5da;
+        box-shadow:
+          0 26px 70px rgba(46, 44, 40, 0.1),
+          inset 0 0 0 1px rgba(157, 185, 168, 0.22);
       }
 
       .badge::before {
         content: "";
         position: absolute;
-        inset: 34px;
-        border-radius: 50%;
-        background: rgba(157, 185, 168, 0.28);
+        inset: 12px;
+        border-radius: 32px;
+        background:
+          linear-gradient(180deg, rgba(252, 248, 242, 0) 0%, rgba(252, 248, 242, 0.06) 100%),
+          url("../src/assets/therapist-portrait.jpg") center 24% / cover no-repeat;
       }
 
       .badge::after {
-        content: "AC";
+        content: "";
         position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: #ffffff;
-        font-size: 112px;
-        font-weight: 800;
-        letter-spacing: -0.08em;
-        text-shadow: 0 4px 18px rgba(46, 44, 40, 0.16);
+        inset: auto 22px 22px auto;
+        width: 92px;
+        height: 92px;
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.16)),
+          rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 14px 34px rgba(46, 44, 40, 0.16);
       }
 
       .eyebrow {
         color: #5b615d;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.08em;
-        margin: 18px 0 36px;
+        margin: 16px 0 28px;
       }
 
       h1 {
         margin: 0;
-        max-width: 640px;
+        max-width: 560px;
         color: var(--text);
-        font-size: 58px;
-        line-height: 1.04;
+        font-size: 48px;
+        line-height: 1.06;
         font-weight: 800;
       }
 
       .sub {
-        margin-top: 28px;
+        margin-top: 24px;
         color: var(--muted);
-        font-size: 26px;
+        font-size: 22px;
         line-height: 1.35;
         font-weight: 600;
       }
@@ -108,29 +117,40 @@
       }
 
       .footer {
-        margin-top: 18px;
-        padding-top: 16px;
-        width: 270px;
+        margin-top: 16px;
+        padding-top: 14px;
+        width: 260px;
         border-top: 3px solid var(--accent);
         color: #8a857c;
-        font-size: 21px;
+        font-size: 20px;
         font-weight: 600;
       }
 
       .badge-wrap {
         position: absolute;
-        right: 92px;
-        top: 132px;
-        width: 334px;
+        right: 78px;
+        top: 106px;
+        width: 322px;
         text-align: center;
       }
 
       .badge-caption {
-        margin-top: 22px;
+        margin-top: 18px;
         color: #6f6a63;
-        font-size: 22px;
+        font-size: 20px;
         line-height: 1.35;
         font-weight: 600;
+      }
+
+      .badge-accent {
+        position: absolute;
+        right: 36px;
+        top: 16px;
+        color: #ffffff;
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+        text-shadow: 0 4px 14px rgba(46, 44, 40, 0.14);
       }
     </style>
   </head>
@@ -138,6 +158,7 @@
     <div class="canvas">
       <div class="badge-wrap">
         <div class="badge"></div>
+        <div class="badge-accent">AC</div>
         <div class="badge-caption">Заботливая работа</div>
       </div>
 
