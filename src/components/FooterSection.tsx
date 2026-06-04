@@ -42,12 +42,18 @@ const FooterSection = () => (
           Max
         </a>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 flex flex-col items-center gap-3">
         <Link
           to="/privacy"
           className="text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           Политика конфиденциальности
+        </Link>
+        <Link
+          to="/offer"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Публичная оферта
         </Link>
       </div>
     </div>
