@@ -83,8 +83,9 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
 
       <AnimatedSection delay={0.24}>
         <p className="text-muted-foreground text-sm leading-relaxed text-center italic max-w-3xl mx-auto mt-6">
-          Оплата осуществляется в рублях. Если нужен другой формат расчёта,
-          это можно обсудить индивидуально.
+          Оплата осуществляется в рублях. Для клиентов за пределами РФ
+          возможна оплата зарубежной картой — в этом случае к стоимости
+          сессии добавляется 10% комиссии платёжной системы.
         </p>
       </AnimatedSection>
     </div>
