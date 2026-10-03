@@ -14,4 +14,4 @@
 
 ## Технические границы
 
-Это статический React/Vite-сайт. Исходники публикуются из `gh-pages-source`, собранные файлы — из `gh-pages` в GitHub Pages. Фактический порядок релиза указан в `AGENTS.md`.
+Это статический React/Vite-сайт. Исходники в `gh-pages-source` собираются и публикуются в GitHub Pages workflow `.github/workflows/deploy-pages.yml`. Фактический порядок релиза указан в `AGENTS.md`.
