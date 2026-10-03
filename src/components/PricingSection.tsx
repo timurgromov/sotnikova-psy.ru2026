@@ -5,65 +5,59 @@ interface PricingSectionProps {
   onBookClick: (bookingType?: BookingType) => void;
 }
 
-type PricingOption = {
-  bookingType: BookingType;
-  format: string;
+type SessionOption = {
+  title: string;
   duration: string;
   price: string;
+  description: string;
+};
+
+type PricingFormat = {
+  bookingType: BookingType;
+  title: string;
   note: string;
   buttonLabel: string;
+  sessions: SessionOption[];
 };
 
-type PricingService = {
-  title: string;
-  description: string;
-  options: PricingOption[];
-};
-
-const pricingServices: PricingService[] = [
+const pricingFormats: PricingFormat[] = [
   {
-    title: "Сессия",
-    description:
-      "Основной формат регулярной терапии с бережной и структурной работой над запросом.",
-    options: [
+    bookingType: "online",
+    title: "Онлайн",
+    note: "Видеовстреча на удобной платформе",
+    buttonLabel: "Записаться онлайн",
+    sessions: [
       {
-        bookingType: "online",
-        format: "Онлайн",
+        title: "Сессия",
         duration: "55 минут",
         price: "5 500 ₽",
-        note: "Видеовстреча на удобной платформе",
-        buttonLabel: "Записаться онлайн",
+        description: "Основной формат регулярной терапии.",
       },
       {
-        bookingType: "in-person",
-        format: "Очно",
-        duration: "50–55 минут",
-        price: "7 500 ₽",
-        note: "Москва · м. Курская",
-        buttonLabel: "Записаться очно",
+        title: "Диагностическая сессия",
+        duration: "90 минут",
+        price: "6 000 ₽",
+        description: "Для первичной концептуализации и рекомендаций.",
       },
     ],
   },
   {
-    title: "Диагностическая сессия",
-    description:
-      "Помогает глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
-    options: [
+    bookingType: "in-person",
+    title: "Очно в Москве",
+    note: "м. Курская",
+    buttonLabel: "Записаться очно",
+    sessions: [
       {
-        bookingType: "diagnostic-online",
-        format: "Онлайн",
-        duration: "90 минут",
-        price: "6 000 ₽",
-        note: "Видеовстреча на удобной платформе",
-        buttonLabel: "Записаться онлайн",
+        title: "Сессия",
+        duration: "50–55 минут",
+        price: "7 500 ₽",
+        description: "Основной формат регулярной терапии.",
       },
       {
-        bookingType: "diagnostic-in-person",
-        format: "Очно",
+        title: "Диагностическая сессия",
         duration: "90 минут",
         price: "8 000 ₽",
-        note: "Москва · м. Курская",
-        buttonLabel: "Записаться очно",
+        description: "Для первичной концептуализации и рекомендаций.",
       },
     ],
   },
@@ -77,7 +71,7 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
           Стоимость
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-2xl mx-auto mb-10">
-          Выберите тип сессии и удобный формат встречи.
+          Выберите удобный формат встречи и подходящую длительность сессии.
         </p>
       </AnimatedSection>
 
@@ -108,46 +102,66 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
       </AnimatedSection>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        {pricingServices.map((service, serviceIndex) => (
-          <AnimatedSection key={service.title} delay={(serviceIndex + 1) * 0.08} className="h-full">
-            <article className="card-surface p-6 md:p-7 h-full flex flex-col">
-              <div>
-                <h3 className="font-heading text-xl font-semibold">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mt-2">
-                  {service.description}
-                </p>
-              </div>
+        {pricingFormats.map((format, formatIndex) => {
+          const headingId = `pricing-${format.bookingType}-title`;
 
-              <div className="divide-y divide-border border-y border-border mt-6">
-                {service.options.map((option) => (
-                  <section
-                    key={option.bookingType}
-                    aria-label={`${service.title}: ${option.format}`}
-                    className="py-5"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="font-heading text-base font-semibold">{option.format}</h4>
-                        <p className="text-muted-foreground text-sm mt-1">{option.duration}</p>
-                      </div>
-                      <p className="font-heading text-lg font-bold whitespace-nowrap">
-                        {option.price}
-                      </p>
-                    </div>
-                    <p className="text-muted-foreground text-sm mt-3">{option.note}</p>
-                    <button
-                      type="button"
-                      onClick={() => onBookClick(option.bookingType)}
-                      className="mt-4 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
+          return (
+            <AnimatedSection
+              key={format.bookingType}
+              delay={(formatIndex + 1) * 0.08}
+              className="h-full"
+            >
+              <article
+                aria-labelledby={headingId}
+                className="card-surface p-6 md:p-7 h-full flex flex-col"
+              >
+                <div>
+                  <h3 id={headingId} className="font-heading text-xl font-semibold">
+                    {format.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-2">
+                    {format.note}
+                  </p>
+                </div>
+
+                <div className="divide-y divide-border border-y border-border mt-6 flex-1">
+                  {format.sessions.map((session) => (
+                    <section
+                      key={session.title}
+                      aria-label={`${format.title}: ${session.title}`}
+                      className="py-5"
                     >
-                      {option.buttonLabel}
-                    </button>
-                  </section>
-                ))}
-              </div>
-            </article>
-          </AnimatedSection>
-        ))}
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h4 className="font-heading text-base font-semibold">
+                            {session.title}
+                          </h4>
+                          <p className="text-muted-foreground text-sm mt-1">
+                            {session.duration}
+                          </p>
+                        </div>
+                        <p className="font-heading text-lg font-bold whitespace-nowrap">
+                          {session.price}
+                        </p>
+                      </div>
+                      <p className="text-muted-foreground text-sm mt-3">
+                        {session.description}
+                      </p>
+                    </section>
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => onBookClick(format.bookingType)}
+                  className="mt-5 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
+                >
+                  {format.buttonLabel}
+                </button>
+              </article>
+            </AnimatedSection>
+          );
+        })}
       </div>
 
       <AnimatedSection delay={0.32}>

@@ -78,4 +78,4 @@ Generated from project sources at 2026-10-03T08:07:35.651Z.
 
 ## Decisions
 
-- Pricing is grouped by service type: the free introduction is a compact strip, and each paid service card shows online and in-person variants together.
+- Pricing is grouped by meeting format: the free introduction is a compact strip, and each paid format card shows regular and diagnostic sessions with one shared CTA.

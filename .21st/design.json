@@ -220,8 +220,8 @@
     {
       "date": "2026-10-03",
       "area": "pricing",
-      "decision": "Group pricing by service type. Keep the free introduction as a compact strip and show online and in-person variants together inside each paid service card.",
-      "reason": "Visitors can compare both formats and prices without scanning five separate cards or missing the in-person section below the fold."
+      "decision": "Group pricing by meeting format. Keep the free introduction as a compact strip, show regular and diagnostic sessions inside each paid format card, and use one CTA per format.",
+      "reason": "Visitors choose online or in-person first, then compare the two session lengths and prices without repeated format labels or duplicated booking buttons."
     }
   ],
   "evidence": [

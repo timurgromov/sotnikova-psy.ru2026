@@ -10,36 +10,40 @@ vi.mock("@/components/AnimatedSection", () => ({
 }));
 
 describe("PricingSection", () => {
-  it("groups formats into two service cards and preserves every booking type", () => {
+  it("groups both session types into one card per meeting format", () => {
     const onBookClick = vi.fn();
     render(<PricingSection onBookClick={onBookClick} />);
 
-    expect(screen.getAllByRole("article")).toHaveLength(2);
-    expect(screen.getAllByText("Москва · м. Курская")).toHaveLength(2);
+    const cards = screen.getAllByRole("article");
+    expect(cards).toHaveLength(2);
+
+    const onlineCard = screen.getByRole("heading", { name: "Онлайн" }).closest("article");
+    const inPersonCard = screen.getByRole("heading", { name: "Очно в Москве" }).closest("article");
+    expect(onlineCard).not.toBeNull();
+    expect(inPersonCard).not.toBeNull();
+
+    expect(within(onlineCard!).getAllByText("Сессия")).toHaveLength(1);
+    expect(within(onlineCard!).getByText("Диагностическая сессия")).toBeInTheDocument();
+    expect(within(onlineCard!).getByText("5 500 ₽")).toBeInTheDocument();
+    expect(within(onlineCard!).getByText("6 000 ₽")).toBeInTheDocument();
+
+    expect(within(inPersonCard!).getAllByText("Сессия")).toHaveLength(1);
+    expect(within(inPersonCard!).getByText("Диагностическая сессия")).toBeInTheDocument();
+    expect(within(inPersonCard!).getByText("7 500 ₽")).toBeInTheDocument();
+    expect(within(inPersonCard!).getByText("8 000 ₽")).toBeInTheDocument();
+    expect(screen.getAllByRole("button")).toHaveLength(3);
 
     const intro = screen.getByRole("heading", { name: "Встреча-знакомство" }).closest("section");
     expect(intro).not.toBeNull();
     fireEvent.click(within(intro!).getByRole("button", { name: "Записаться" }));
 
-    const scenarios = [
-      ["Сессия: Онлайн", "Записаться онлайн", "online"],
-      ["Сессия: Очно", "Записаться очно", "in-person"],
-      ["Диагностическая сессия: Онлайн", "Записаться онлайн", "diagnostic-online"],
-      ["Диагностическая сессия: Очно", "Записаться очно", "diagnostic-in-person"],
-    ] as const;
-
-    scenarios.forEach(([sectionLabel, buttonLabel]) => {
-      fireEvent.click(
-        within(screen.getByLabelText(sectionLabel)).getByRole("button", { name: buttonLabel }),
-      );
-    });
+    fireEvent.click(within(onlineCard!).getByRole("button", { name: "Записаться онлайн" }));
+    fireEvent.click(within(inPersonCard!).getByRole("button", { name: "Записаться очно" }));
 
     expect(onBookClick.mock.calls).toEqual([
       ["free"],
       ["online"],
       ["in-person"],
-      ["diagnostic-online"],
-      ["diagnostic-in-person"],
     ]);
   });
 });

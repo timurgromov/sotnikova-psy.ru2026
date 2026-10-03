@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-03-pricing-by-format",
+  "change_kind": "responsive-pricing-layout",
+  "status": "passed",
+  "requested_visible_change": "Group paid pricing into one Online card and one In-person card, show regular and diagnostic sessions inside each card, and keep one booking CTA per format.",
+  "expected_visible_delta": "The pricing section shows a compact free-introduction strip plus two paid format cards. Each paid card contains two session rows and one shared booking CTA, reducing the paid CTA count from four to two.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "13c3dba23452f0e6a1d83b86e60b79ee26c936760bb03ec5119c6a27be73cd81",
+  "served_candidate": {
+    "url": "http://127.0.0.1:8080/",
+    "source_ref": "staged working tree based on 2f002cc",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/#pricing",
+    "state": "public landing page, pricing section",
+    "selector_or_slide_id": "#pricing",
+    "action": "Open the pricing section and compare the regular and diagnostic session rows inside each meeting-format card."
+  },
+  "must_remain_unchanged": [
+    "Free introduction meeting",
+    "All four paid prices and durations",
+    "Moscow, Kurskaya location",
+    "Payment note",
+    "Other landing-page sections"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1023x768",
+    "1024x768",
+    "1025x768",
+    "1180x820",
+    "1280x720",
+    "1366x768",
+    "1440x900",
+    "1984x1046"
+  ],
+  "observations": [
+    {
+      "viewport": "390x844",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=390; innerHeight=844",
+      "before_signature": "Live production: two stacked service cards titled Session and Diagnostic session, four paid CTAs, width=342px and no horizontal overflow.",
+      "after_signature": "Local candidate: two stacked format cards titled Online and In-person in Moscow, four session rows, two paid CTAs, width=342px and no horizontal overflow.",
+      "observed_visible_result": "The Online card visibly contains both 5 500 RUB regular and 6 000 RUB diagnostic sessions above one shared Online CTA.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1023x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1023; innerHeight=768",
+      "before_signature": "Live production: service cards remain stacked immediately below the lg breakpoint and expose four paid CTAs.",
+      "after_signature": "Local candidate: format cards remain stacked immediately below the lg breakpoint and expose two paid CTAs.",
+      "observed_visible_result": "Both session rows stay inside their format card without horizontal overflow before the two-column transition.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1024x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1024; innerHeight=768",
+      "before_signature": "Live production: two 480px service cards titled Session and Diagnostic session appear side by side with four paid CTAs.",
+      "after_signature": "Local candidate: two 480px format cards titled Online and In-person in Moscow appear side by side with two paid CTAs.",
+      "observed_visible_result": "The layout changes to two equal columns exactly at the lg breakpoint and keeps both session types in each format.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1025x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1025; innerHeight=768",
+      "before_signature": "Live production: two 480px service cards remain side by side one pixel above the lg breakpoint.",
+      "after_signature": "Local candidate: two 480px format cards remain side by side one pixel above the lg breakpoint.",
+      "observed_visible_result": "The breakpoint is stable, card widths match and each card ends in one full-width CTA.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1180x820",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1180; innerHeight=820",
+      "before_signature": "Live production: two equal service cards show duplicated Online and In-person CTAs inside each card.",
+      "after_signature": "Local candidate: two equal format cards show regular and diagnostic rows above one shared format CTA.",
+      "observed_visible_result": "The compact laptop layout exposes all four prices in one coherent two-card module without overflow.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1280x720",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1280; innerHeight=720",
+      "before_signature": "Live production: cards are grouped by service type and the pricing section contains five CTAs total including the free introduction.",
+      "after_signature": "Local candidate: cards are grouped by meeting format and the pricing section contains three CTAs total including the free introduction.",
+      "observed_visible_result": "Online and In-person in Moscow are simultaneously visible; each shows regular and diagnostic price rows with one shared CTA.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1366x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1366; innerHeight=768",
+      "before_signature": "Live production: two centered 480px service cards contain four paid CTA buttons.",
+      "after_signature": "Local candidate: two centered 480px format cards contain two paid CTA buttons.",
+      "observed_visible_result": "Both format cards stay balanced and all prices remain readable without a repeated booking button per session row.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1440; innerHeight=900",
+      "before_signature": "Live production: centered service cards use four paid CTAs and repeat both meeting formats.",
+      "after_signature": "Local candidate: centered format cards use two paid CTAs and repeat neither meeting format.",
+      "observed_visible_result": "Spacing, prices and CTA widths are consistent across the two format cards.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1984x1046",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1984; innerHeight=1046",
+      "before_signature": "Live production: max-width module contains two service cards and four paid CTA buttons.",
+      "after_signature": "Local candidate: max-width module contains two format cards and two paid CTA buttons.",
+      "observed_visible_result": "The module does not over-expand on a wide desktop and preserves the same clear format-first hierarchy.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "format-grouped pricing",
+    "owner_approval_reference": "User explicitly clarified the desired two-card format-first layout and said: делай"
+  }
+}
