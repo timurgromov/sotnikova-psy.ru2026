@@ -5,59 +5,65 @@ interface PricingSectionProps {
   onBookClick: (bookingType?: BookingType) => void;
 }
 
-type PricingItem = {
+type PricingOption = {
   bookingType: BookingType;
-  title: string;
+  format: string;
   duration: string;
   price: string;
-  desc: string;
-  accent?: boolean;
+  note: string;
+  buttonLabel: string;
 };
 
-const pricingGroups: Array<{ title: string; items: PricingItem[] }> = [
+type PricingService = {
+  title: string;
+  description: string;
+  options: PricingOption[];
+};
+
+const pricingServices: PricingService[] = [
   {
-    title: "Онлайн",
-    items: [
-      {
-        bookingType: "free",
-        title: "Встреча-знакомство",
-        duration: "15–20 минут",
-        price: "Бесплатно",
-        desc: "Короткая онлайн-встреча, чтобы познакомиться, задать вопросы и понять, комфортно ли вам начинать работу.",
-        accent: true,
-      },
+    title: "Сессия",
+    description:
+      "Основной формат регулярной терапии с бережной и структурной работой над запросом.",
+    options: [
       {
         bookingType: "online",
-        title: "Онлайн-сессия",
+        format: "Онлайн",
         duration: "55 минут",
         price: "5 500 ₽",
-        desc: "Основной формат регулярной терапии с бережной и структурной работой над запросом.",
+        note: "Видеовстреча на удобной платформе",
+        buttonLabel: "Записаться онлайн",
       },
       {
-        bookingType: "diagnostic-online",
-        title: "Диагностическая онлайн-сессия",
-        duration: "90 минут",
-        price: "6 000 ₽",
-        desc: "Подходит, если важно глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
+        bookingType: "in-person",
+        format: "Очно",
+        duration: "50–55 минут",
+        price: "7 500 ₽",
+        note: "Москва · м. Курская",
+        buttonLabel: "Записаться очно",
       },
     ],
   },
   {
-    title: "Очно в Москве · м. Курская",
-    items: [
+    title: "Диагностическая сессия",
+    description:
+      "Помогает глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
+    options: [
       {
-        bookingType: "in-person",
-        title: "Очная встреча в Москве",
-        duration: "50–55 минут",
-        price: "7 500 ₽",
-        desc: "Очная консультация в Москве, м. Курская.",
+        bookingType: "diagnostic-online",
+        format: "Онлайн",
+        duration: "90 минут",
+        price: "6 000 ₽",
+        note: "Видеовстреча на удобной платформе",
+        buttonLabel: "Записаться онлайн",
       },
       {
         bookingType: "diagnostic-in-person",
-        title: "Диагностическая сессия в Москве",
+        format: "Очно",
         duration: "90 минут",
         price: "8 000 ₽",
-        desc: "Очная диагностическая встреча в Москве, м. Курская.",
+        note: "Москва · м. Курская",
+        buttonLabel: "Записаться очно",
       },
     ],
   },
@@ -71,65 +77,80 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
           Стоимость
         </h2>
         <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-2xl mx-auto mb-10">
-          Формат и стоимость известны заранее.
+          Выберите тип сессии и удобный формат встречи.
         </p>
       </AnimatedSection>
 
-      <div className="space-y-10">
-        {pricingGroups.map((group, groupIndex) => (
-          <section key={group.title} aria-labelledby={`pricing-${groupIndex}`}>
-            <h3
-              id={`pricing-${groupIndex}`}
-              className="font-heading text-lg font-semibold text-center mb-4"
+      <AnimatedSection>
+        <section
+          aria-labelledby="intro-meeting-title"
+          className="card-surface border border-primary/25 bg-primary/5 px-6 py-5 md:px-7"
+        >
+          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_auto_auto] md:items-center md:gap-7">
+            <div>
+              <h3 id="intro-meeting-title" className="font-heading text-lg font-semibold">
+                Встреча-знакомство
+              </h3>
+              <p className="text-muted-foreground text-sm mt-1">
+                Онлайн · 15–20 минут · чтобы познакомиться и задать вопросы
+              </p>
+            </div>
+            <p className="font-heading text-lg font-bold whitespace-nowrap">Бесплатно</p>
+            <button
+              type="button"
+              onClick={() => onBookClick("free")}
+              className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full md:w-auto"
             >
-              {group.title}
-            </h3>
-            <div
-              className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${
-                group.items.length === 3 ? "xl:grid-cols-3" : "max-w-3xl mx-auto"
-              }`}
-            >
-              {group.items.map((item, itemIndex) => (
-                <AnimatedSection key={item.title} delay={(groupIndex * 3 + itemIndex) * 0.08}>
-                  <div
-                    className={`card-surface p-7 h-full flex flex-col ${
-                      item.accent ? "border border-primary/25 bg-primary/5" : ""
-                    }`}
+              Записаться
+            </button>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+        {pricingServices.map((service, serviceIndex) => (
+          <AnimatedSection key={service.title} delay={(serviceIndex + 1) * 0.08} className="h-full">
+            <article className="card-surface p-6 md:p-7 h-full flex flex-col">
+              <div>
+                <h3 className="font-heading text-xl font-semibold">{service.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mt-2">
+                  {service.description}
+                </p>
+              </div>
+
+              <div className="divide-y divide-border border-y border-border mt-6">
+                {service.options.map((option) => (
+                  <section
+                    key={option.bookingType}
+                    aria-label={`${service.title}: ${option.format}`}
+                    className="py-5"
                   >
-                    <div className="flex flex-col gap-2 xl:grid xl:grid-cols-[minmax(0,1fr)_auto] xl:items-start xl:gap-x-4">
-                      <div className="w-full xl:min-h-[4.5rem]">
-                        <h4 className="font-heading text-lg font-semibold leading-tight max-w-none">
-                          {item.title}
-                        </h4>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h4 className="font-heading text-base font-semibold">{option.format}</h4>
+                        <p className="text-muted-foreground text-sm mt-1">{option.duration}</p>
                       </div>
-                      <div className="font-heading text-base xl:text-lg font-bold whitespace-nowrap">
-                        {item.price}
-                      </div>
+                      <p className="font-heading text-lg font-bold whitespace-nowrap">
+                        {option.price}
+                      </p>
                     </div>
-
-                    <p className="text-muted-foreground text-sm mt-2 xl:mt-1">
-                      {item.duration}
-                    </p>
-
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1 mt-6">
-                      {item.desc}
-                    </p>
+                    <p className="text-muted-foreground text-sm mt-3">{option.note}</p>
                     <button
                       type="button"
-                      onClick={() => onBookClick(item.bookingType)}
-                      className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
+                      onClick={() => onBookClick(option.bookingType)}
+                      className="mt-4 bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full"
                     >
-                      Записаться
+                      {option.buttonLabel}
                     </button>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </section>
+                  </section>
+                ))}
+              </div>
+            </article>
+          </AnimatedSection>
         ))}
       </div>
 
-      <AnimatedSection delay={0.4}>
+      <AnimatedSection delay={0.32}>
         <p className="text-muted-foreground text-sm leading-relaxed text-center italic max-w-3xl mx-auto mt-6">
           Оплата осуществляется в рублях. Для клиентов за пределами РФ
           возможна оплата зарубежной картой — в этом случае к стоимости

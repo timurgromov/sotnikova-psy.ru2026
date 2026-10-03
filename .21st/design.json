@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "project": {
+    "name": "vite_react_shadcn_ts",
+    "productType": null,
+    "stack": [
+      "react",
+      "shadcn",
+      "tailwind-v3",
+      "vite"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/index.css",
+      "src/app.css"
+    ],
+    "components": [
+      "src/components/ui"
+    ],
+    "assets": [
+      "src/assets"
+    ],
+    "instructions": [
+      "AGENTS.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "--background": {
+        "value": "40 20% 97%",
+        "source": "src/index.css"
+      },
+      "--foreground": {
+        "value": "36 5% 23%",
+        "source": "src/index.css"
+      },
+      "--card-foreground": {
+        "value": "36 5% 23%",
+        "source": "src/index.css"
+      },
+      "--popover-foreground": {
+        "value": "36 5% 23%",
+        "source": "src/index.css"
+      },
+      "--primary": {
+        "value": "153 18% 41%",
+        "source": "src/index.css"
+      },
+      "--primary-foreground": {
+        "value": "0 0% 100%",
+        "source": "src/index.css"
+      },
+      "--secondary": {
+        "value": "36 14% 91%",
+        "source": "src/index.css"
+      },
+      "--secondary-foreground": {
+        "value": "36 5% 23%",
+        "source": "src/index.css"
+      },
+      "--muted": {
+        "value": "36 14% 91%",
+        "source": "src/index.css"
+      },
+      "--muted-foreground": {
+        "value": "36 5% 40%",
+        "source": "src/index.css"
+      },
+      "--accent": {
+        "value": "153 16% 63%",
+        "source": "src/index.css"
+      },
+      "--accent-foreground": {
+        "value": "0 0% 100%",
+        "source": "src/index.css"
+      },
+      "--destructive": {
+        "value": "0 84.2% 60.2%",
+        "source": "src/index.css"
+      },
+      "--destructive-foreground": {
+        "value": "0 0% 100%",
+        "source": "src/index.css"
+      },
+      "--border": {
+        "value": "36 14% 89%",
+        "source": "src/index.css"
+      },
+      "--ring": {
+        "value": "153 16% 63%",
+        "source": "src/index.css"
+      },
+      "--sidebar-background": {
+        "value": "0 0% 98%",
+        "source": "src/index.css"
+      },
+      "--sidebar-foreground": {
+        "value": "240 5.3% 26.1%",
+        "source": "src/index.css"
+      },
+      "--sidebar-primary": {
+        "value": "240 5.9% 10%",
+        "source": "src/index.css"
+      },
+      "--sidebar-primary-foreground": {
+        "value": "0 0% 98%",
+        "source": "src/index.css"
+      },
+      "--sidebar-accent": {
+        "value": "240 4.8% 95.9%",
+        "source": "src/index.css"
+      },
+      "--sidebar-accent-foreground": {
+        "value": "240 5.9% 10%",
+        "source": "src/index.css"
+      },
+      "--sidebar-border": {
+        "value": "220 13% 91%",
+        "source": "src/index.css"
+      },
+      "--sidebar-ring": {
+        "value": "217.2 91.2% 59.8%",
+        "source": "src/index.css"
+      }
+    },
+    "typography": {
+      "--font-heading": {
+        "value": "'Manrope', sans-serif",
+        "source": "src/index.css"
+      },
+      "--font-body": {
+        "value": "'Inter', sans-serif",
+        "source": "src/index.css"
+      }
+    },
+    "spacing": {},
+    "radius": {
+      "--radius": {
+        "value": "1.5rem",
+        "source": "src/index.css"
+      }
+    },
+    "shadows": {
+      "--shadow-card": {
+        "value": "0 1px 3px 0 hsl(36 5% 23% / 0.04), 0 1px 2px -1px hsl(36 5% 23% / 0.04)",
+        "source": "src/index.css"
+      },
+      "--shadow-card-hover": {
+        "value": "0 4px 12px 0 hsl(36 5% 23% / 0.06)",
+        "source": "src/index.css"
+      }
+    },
+    "motion": {},
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [
+      "accordion",
+      "alert",
+      "alert-dialog",
+      "aspect-ratio",
+      "avatar",
+      "badge",
+      "breadcrumb",
+      "button",
+      "calendar",
+      "card",
+      "carousel",
+      "chart",
+      "checkbox",
+      "collapsible",
+      "command",
+      "context-menu",
+      "dialog",
+      "drawer",
+      "dropdown-menu",
+      "form",
+      "hover-card",
+      "input",
+      "input-otp",
+      "label",
+      "menubar",
+      "navigation-menu",
+      "pagination",
+      "popover",
+      "progress",
+      "radio-group",
+      "resizable",
+      "scroll-area",
+      "select",
+      "separator",
+      "sheet",
+      "sidebar",
+      "skeleton",
+      "slider",
+      "sonner",
+      "switch",
+      "table",
+      "tabs",
+      "textarea",
+      "toast",
+      "toaster",
+      "toggle",
+      "toggle-group",
+      "tooltip",
+      "use-toast"
+    ],
+    "preferredPrimitives": [
+      "radix-ui"
+    ],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [],
+    "avoid": []
+  },
+  "decisions": [
+    {
+      "date": "2026-10-03",
+      "area": "pricing",
+      "decision": "Group pricing by service type. Keep the free introduction as a compact strip and show online and in-person variants together inside each paid service card.",
+      "reason": "Visitors can compare both formats and prices without scanning five separate cards or missing the in-person section below the fold."
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "components.installed",
+      "source": "src/components/ui"
+    },
+    {
+      "fact": "design.colorMode:light",
+      "source": "src/index.css, src/app.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "src/app.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "src/index.css"
+    },
+    {
+      "fact": "project.instructions",
+      "source": "AGENTS.md"
+    },
+    {
+      "fact": "project.stack:react",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:shadcn",
+      "source": "components.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v3",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:vite",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-10-03T08:07:35.651Z"
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-03-pricing-consolidation",
+  "change_kind": "responsive-pricing-layout",
+  "status": "passed",
+  "requested_visible_change": "Replace five separate pricing cards with a compact introduction strip and two service cards that each show online and in-person prices together.",
+  "expected_visible_delta": "The pricing section shows one compact free-introduction strip plus two paid service cards; each paid card contains both online and in-person rows with price, duration, location where relevant, and its own booking CTA.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "7604f661e0d80cfc7ae2d72a862403c3bc0e8af3ce00dcb02d70a18a80d5030b",
+  "served_candidate": {
+    "url": "http://127.0.0.1:8080/",
+    "source_ref": "staged working tree based on 2e64984",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/#pricing",
+    "state": "public landing page, pricing section",
+    "selector_or_slide_id": "#pricing",
+    "action": "Open the pricing section and compare the simultaneously visible online and in-person variants inside each paid service card."
+  },
+  "must_remain_unchanged": [
+    "All five booking types",
+    "Prices and durations",
+    "Moscow, Kurskaya location",
+    "Payment note",
+    "Other landing-page sections"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1023x768",
+    "1024x768",
+    "1025x768",
+    "1180x820",
+    "1280x720",
+    "1366x768",
+    "1440x900",
+    "1984x1046"
+  ],
+  "observations": [
+    {
+      "viewport": "390x844",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=390; innerHeight=844",
+      "before_signature": "Live production: five independent pricing cards split into separate Online and In-person groups; scrollWidth=390.",
+      "after_signature": "Local candidate: one intro strip, two stacked service cards, four format rows and five CTAs; service-card width=342; scrollWidth=390.",
+      "observed_visible_result": "The regular-session card visibly contains both 5 500 RUB online and 7 500 RUB in-person variants before the diagnostic card.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1023x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1023; innerHeight=768",
+      "before_signature": "Live production: five independent pricing cards split by Online and In-person group headings; scrollWidth=1023.",
+      "after_signature": "Local candidate: two service cards remain stacked at the lg breakpoint minus one pixel; five CTAs and no horizontal overflow.",
+      "observed_visible_result": "Each stacked service card keeps both formats together immediately before the two-column transition.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1024x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1024; innerHeight=768",
+      "before_signature": "Live production: five independent pricing cards with online cards above the separate in-person group; scrollWidth=1024.",
+      "after_signature": "Local candidate: two 480px service cards appear side by side at the lg breakpoint; four format rows and five CTAs remain present; scrollWidth=1024.",
+      "observed_visible_result": "The regular and diagnostic services align in two columns and both prices inside each card are simultaneously available.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1025x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1025; innerHeight=768",
+      "before_signature": "Live production: five independent pricing cards and separate Online/In-person group headings; scrollWidth=1025.",
+      "after_signature": "Local candidate: two 480px service cards remain side by side at the lg breakpoint plus one pixel; scrollWidth=1025.",
+      "observed_visible_result": "The breakpoint remains stable with equal-width service cards and fully visible CTAs.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1180x820",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1180; innerHeight=820",
+      "before_signature": "Live production: five independent pricing cards split by format; scrollWidth=1180.",
+      "after_signature": "Local candidate: two equal 480px service cards side by side, four format rows and five CTAs; scrollWidth=1180.",
+      "observed_visible_result": "The compact laptop layout keeps all online and in-person comparisons inside the same two-card module.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1280x720",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1280; innerHeight=720",
+      "before_signature": "Live production: three Online cards occupy the first pricing row while the separate in-person group is below; five cards total; scrollWidth=1280.",
+      "after_signature": "Local candidate: compact free-introduction strip above two 480x525 paid service cards; each card contains Online and In-person rows; scrollWidth=1280.",
+      "observed_visible_result": "Both paid services and both formats are visibly comparable in one coherent desktop block.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1366x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1366; innerHeight=768",
+      "before_signature": "Live production: five separate cards grouped by Online and In-person headings; scrollWidth=1366.",
+      "after_signature": "Local candidate: two centered 480px service cards with both format rows and five CTAs; scrollWidth=1366.",
+      "observed_visible_result": "The desktop cards remain balanced and expose all four paid prices without a second format section.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1440; innerHeight=900",
+      "before_signature": "Live production: five independent cards and separate Online/In-person group headings; scrollWidth=1440.",
+      "after_signature": "Local candidate: two centered equal-width service cards plus one compact intro strip; four format rows and five CTAs; scrollWidth=1440.",
+      "observed_visible_result": "Spacing, prices and CTA widths remain consistent across the two service cards.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1984x1046",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1984; innerHeight=1046",
+      "before_signature": "Live production: five independent cards split into Online and In-person groups; scrollWidth=1984.",
+      "after_signature": "Local candidate: max-width pricing module with two centered 480px service cards, four format rows and five CTAs; scrollWidth=1984.",
+      "observed_visible_result": "The module does not over-expand on a wide desktop and preserves the same two-card hierarchy.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "service-grouped pricing",
+    "owner_approval_reference": "User said: делай"
+  }
+}
