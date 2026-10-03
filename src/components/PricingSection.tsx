@@ -16,17 +16,31 @@ const pricingItems = [
   },
   {
     bookingType: null,
-    title: "1 сессия",
+    title: "Онлайн-сессия",
     duration: "55 минут",
     price: "5 500 ₽",
     desc: "Основной формат регулярной терапии с бережной и структурной работой над запросом.",
   },
   {
     bookingType: "diagnostic" as BookingType,
-    title: "Диагностическая сессия",
+    title: "Диагностическая онлайн-сессия",
     duration: "90 минут",
     price: "6 000 ₽",
     desc: "Подходит, если важно глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
+  },
+  {
+    bookingType: null,
+    title: "Очная встреча в Москве",
+    duration: "50–55 минут",
+    price: "7 500 ₽",
+    desc: "Очная консультация в Москве, м. Курская.",
+  },
+  {
+    bookingType: "diagnostic" as BookingType,
+    title: "Диагностическая сессия в Москве",
+    duration: "90 минут",
+    price: "8 000 ₽",
+    desc: "Очная диагностическая встреча в Москве, м. Курская.",
   },
 ];
 
@@ -42,7 +56,7 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
         </p>
       </AnimatedSection>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {pricingItems.map((item, i) => (
           <AnimatedSection key={item.title} delay={i * 0.08}>
             <div

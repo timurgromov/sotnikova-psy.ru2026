@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-03-moscow-consultations",
+  "change_kind": "faq-and-pricing",
+  "status": "passed",
+  "requested_visible_change": "Add in-person consultations in Moscow, m. Kurskaya to the FAQ and pricing section.",
+  "expected_visible_delta": "The FAQ identifies in-person appointments in Moscow, m. Kurskaya, and pricing shows separate 7 500 ₽ and 8 000 ₽ in-person options without changing online prices.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "eef6e22269b5dc270736e6eced962721c7bdb7f87c0c83c0baaeabdd4510767c",
+  "served_candidate": {
+    "url": "http://127.0.0.1:4173/",
+    "source_ref": "working-tree",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/",
+    "state": "public landing page, FAQ expanded",
+    "selector_or_slide_id": "FAQ question Как проходят консультации? and pricing card headings",
+    "action": "expand the FAQ answer and inspect all price cards"
+  },
+  "must_remain_unchanged": [
+    "online price 5 500 ₽ for 55 minutes",
+    "online diagnostic price 6 000 ₽ for 90 minutes",
+    "booking CTAs for free and diagnostic sessions",
+    "mobile navigation"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1280x720"
+  ],
+  "observations": [
+    {
+      "viewport": "1280x720",
+      "viewport_source": "Playwright headed browser; inner viewport 1280x720",
+      "before_signature": "FAQ only lists online platforms; pricing has three cards",
+      "after_signature": "FAQ includes Москва, м. Курская; pricing has five cards including 7 500 ₽ and 8 000 ₽ in-person options",
+      "observed_visible_result": "The expanded FAQ and every price card expose the requested format, duration and price; online values remain unchanged.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "390x844",
+      "viewport_source": "Playwright resize; inner viewport 390x844",
+      "before_signature": "mobile page has no in-person Moscow pricing",
+      "after_signature": "all five pricing cards are present in a single-column mobile layout",
+      "observed_visible_result": "The FAQ remains expandable and the price cards are accessible without a horizontal layout regression.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "",
+    "owner_approval_reference": ""
+  }
+}

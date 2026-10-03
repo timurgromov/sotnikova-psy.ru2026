@@ -1,93 +1,31 @@
-# Welcome to your Lovable project
+# Сайт Анастасии Сотниковой
 
-## Project info
+Публичный одностраничный сайт психолога: https://sotnikova-psy.ru
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Технологии
 
-## How can I edit this code?
+- React + TypeScript
+- Vite
+- Tailwind CSS и shadcn/ui
+- GitHub Pages для статической публикации
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Локальная работа
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
+npm run build
+npm run test
 ```
 
-**Edit a file directly in GitHub**
+## Публикация
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Исходники ведутся в ветке `gh-pages-source`, собранный сайт — в `gh-pages`.
+Полный порядок релиза, включая сохранение `CNAME` и `.nojekyll`, описан в [AGENTS.md](./AGENTS.md). Изменение сайта считается завершённым только после проверки сборки, пуша исходников и публикации актуального `dist/` в GitHub Pages.
 
-**Use GitHub Codespaces**
+## Документация
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-
-## Правила работы агента
-
-Основные правила для нового чата и нового агента зафиксированы в [AGENTS.md](./AGENTS.md). Для этого проекта агент обязан начинать с них и соблюдать их как основной workflow.
-
-Для этого проекта агент должен работать так по умолчанию:
-
-1. Внести изменения в исходники.
-2. Проверить результат локально, если это возможно.
-3. Сделать `git commit` в исходной ветке с изменениями задачи.
-4. Сделать `git push` исходной ветки в GitHub.
-5. Собрать актуальную версию сайта.
-6. Обновить ветку `gh-pages` собранным сайтом.
-7. Сделать `git commit` в `gh-pages` и `git push` в GitHub.
-
-Правило проекта:
-
-- После завершения задачи изменения должны быть не только сохранены в исходниках, но и опубликованы в GitHub Pages.
-- Не останавливаться на локальных правках или только на пуше исходной ветки, если задача подразумевает обновление сайта.
-- Если нет явного запрета от пользователя, рабочий цикл считается завершённым только после `commit + push` исходников и `deploy` в `gh-pages`.
+- [PROJECT_SPEC.md](./PROJECT_SPEC.md) — назначение и границы сайта.
+- [UX.md](./UX.md) — пользовательский путь и правила интерфейса.
+- [TASKS.md](./TASKS.md) — текущие рабочие задачи и блокеры.
+- [docs/history/](./docs/history/) — текущее состояние и принятые решения.
