@@ -53,7 +53,7 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-base md:text-lg text-muted-foreground max-w-md mx-auto md:mx-0 mb-8 leading-relaxed"
           >
-            Специалист по расстройствам пищевого поведения. Доказательный подход, бережная работа.
+            Специалист по расстройствам пищевого поведения. Работаю со взрослыми и подростками. Доказательный подход, бережная работа.
           </motion.p>
 
           <motion.div

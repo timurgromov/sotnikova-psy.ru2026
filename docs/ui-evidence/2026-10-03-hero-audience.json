@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-03-hero-audience",
+  "change_kind": "hero-copy",
+  "status": "passed",
+  "requested_visible_change": "Show that the psychologist works with adults and teenagers in the first screen.",
+  "expected_visible_delta": "The hero subtitle includes Работаю со взрослыми и подростками.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "877174096c63322d6a7e486d2b60b5763b01da3e3c42f6478640646db4ad8f49",
+  "served_candidate": {
+    "url": "http://127.0.0.1:4173/",
+    "source_ref": "working-tree",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/",
+    "state": "public landing page, hero",
+    "selector_or_slide_id": "HeroSection subtitle",
+    "action": "open the landing page"
+  },
+  "must_remain_unchanged": [
+    "hero heading",
+    "primary booking CTA",
+    "specialization and evidence-based approach copy"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1280x720"
+  ],
+  "observations": [
+    {
+      "viewport": "1280x720",
+      "viewport_source": "Playwright headed browser; inner viewport 1280x720",
+      "before_signature": "hero subtitle has no age-audience sentence",
+      "after_signature": "hero subtitle includes Работаю со взрослыми и подростками",
+      "observed_visible_result": "The audience sentence is visible beneath the hero heading alongside the existing specialization and approach copy.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "390x844",
+      "viewport_source": "Playwright resize; inner viewport 390x844",
+      "before_signature": "hero subtitle has no age-audience sentence",
+      "after_signature": "hero subtitle includes the audience sentence without horizontal overflow",
+      "observed_visible_result": "The full hero subtitle and booking CTA remain reachable on the mobile layout.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "",
+    "owner_approval_reference": ""
+  }
+}
