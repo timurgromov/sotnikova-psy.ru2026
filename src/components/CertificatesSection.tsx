@@ -1,6 +1,30 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import certificate01 from "../../certificates/1.jpeg";
+import certificate02 from "../../certificates/2.jpeg";
+import certificate03 from "../../certificates/3.jpeg";
+import certificate04 from "../../certificates/4.jpeg";
+import certificate05 from "../../certificates/5.jpeg";
+import certificate06 from "../../certificates/6.jpg";
+import certificate07 from "../../certificates/7.jpeg";
+import certificate08 from "../../certificates/8.jpeg";
+import certificate09 from "../../certificates/9.jpeg";
+import certificate10 from "../../certificates/10.jpeg";
+import certificate11 from "../../certificates/11.jpeg";
+import certificate12 from "../../certificates/12.jpeg";
+import certificate13 from "../../certificates/13.jpeg";
+import certificate14 from "../../certificates/14.jpeg";
+import certificate15 from "../../certificates/15.jpeg";
+import certificate16 from "../../certificates/16.jpeg";
+import certificate17 from "../../certificates/17.jpeg";
+import certificate18 from "../../certificates/18.jpeg";
+import certificate19 from "../../certificates/19.jpeg";
+import certificate20 from "../../certificates/20.jpeg";
+import certificate21 from "../../certificates/21.jpeg";
+import certificate22 from "../../certificates/22.jpeg";
+import certificate23 from "../../certificates/23.jpeg";
+import certificate24 from "../../certificates/24.jpeg";
 
 type CertificateItem = {
   title: string;
@@ -8,8 +32,36 @@ type CertificateItem = {
   src: string;
 };
 
-const certificateSrc = (fileName: string) =>
-  new URL(`../../certificates/${fileName}`, import.meta.url).href;
+// Static imports make a missing certificate a build error instead of a broken
+// `/assets/undefined` image on the published site.
+const certificateSources: Record<string, string> = {
+  "1.jpeg": certificate01,
+  "2.jpeg": certificate02,
+  "3.jpeg": certificate03,
+  "4.jpeg": certificate04,
+  "5.jpeg": certificate05,
+  "6.jpg": certificate06,
+  "7.jpeg": certificate07,
+  "8.jpeg": certificate08,
+  "9.jpeg": certificate09,
+  "10.jpeg": certificate10,
+  "11.jpeg": certificate11,
+  "12.jpeg": certificate12,
+  "13.jpeg": certificate13,
+  "14.jpeg": certificate14,
+  "15.jpeg": certificate15,
+  "16.jpeg": certificate16,
+  "17.jpeg": certificate17,
+  "18.jpeg": certificate18,
+  "19.jpeg": certificate19,
+  "20.jpeg": certificate20,
+  "21.jpeg": certificate21,
+  "22.jpeg": certificate22,
+  "23.jpeg": certificate23,
+  "24.jpeg": certificate24,
+};
+
+const certificateSrc = (fileName: string) => certificateSources[fileName];
 
 const certificates: CertificateItem[] = [
   {
@@ -53,6 +105,11 @@ const certificates: CertificateItem[] = [
     src: certificateSrc("8.jpeg"),
   },
   {
+    title: "Деньги и предназначение",
+    meta: "Институт практической онлайн психологии · 54 часа · 2023",
+    src: certificateSrc("9.jpeg"),
+  },
+  {
     title: "X Всероссийская научно-практическая конференция EMDR/ДПДГ России",
     meta: "Москва · 8-10 ноября 2024",
     src: certificateSrc("10.jpeg"),
@@ -71,6 +128,11 @@ const certificates: CertificateItem[] = [
     title: "Доказательная психотерапия расстройств пищевого поведения (РПП)",
     meta: "Психодемия · 127 часов · 2024",
     src: certificateSrc("14.jpeg"),
+  },
+  {
+    title: "Программа обучения по диетологии и нутрициологии",
+    meta: "Школа диетологов · 2021",
+    src: certificateSrc("15.jpeg"),
   },
   {
     title: "Стратегия формирования здоровых пищевых привычек в семье",

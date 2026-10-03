@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-03-release-completeness",
+  "change_kind": "pricing-booking-and-certificate-assets",
+  "status": "passed",
+  "requested_visible_change": "Every consultation format has a direct booking CTA, selected format is named in the booking overlay, and all 24 supplied certificate cards render their real images.",
+  "expected_visible_delta": "Pricing is grouped into Online and In-person Moscow sections with five CTA buttons; normal online and in-person cards now open format-specific dialogs; all 24 certificate images use real URLs and visible cards have nonzero natural widths.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "58029c9c12e6ac9fbbbbde8cea671bccc59b1d54e801d26b88aa17ea56d5b878",
+  "served_candidate": {
+    "url": "http://127.0.0.1:4174/",
+    "source_ref": "staged working tree after npm run build",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/",
+    "state": "public landing page, no authentication",
+    "selector_or_slide_id": "#pricing and certificates carousel",
+    "action": "scroll to pricing, click normal online and in-person CTA, then scroll to certificates and open the first card"
+  },
+  "must_remain_unchanged": [
+    "approved prices and durations",
+    "Moscow location",
+    "hero copy and contacts",
+    "free and diagnostic entry paths"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1366x768",
+    "1440x900"
+  ],
+  "observations": [
+    {
+      "viewport": "390x844",
+      "viewport_source": "Playwright resize; innerWidth=390; innerHeight=844",
+      "before_signature": "pricing had two normal service cards without CTA; primary background rgb(146,176,162); certificate assets could resolve to /assets/undefined",
+      "after_signature": "pricingCtas=5; overflow=false; primary background rgb(86,123,106); normal online card has a visible Записаться CTA",
+      "observed_visible_result": "Mobile pricing starts with the Online group and shows a readable CTA in the first card; no horizontal overflow was observed.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1366x768",
+      "viewport_source": "Playwright resize; innerWidth=1366; innerHeight=768",
+      "before_signature": "5,500 ₽ online session and 7,500 ₽ in-person session had no CTA; certificate images requested /assets/undefined on the public baseline",
+      "after_signature": "Online group contains three cards and CTA buttons; click on 5,500 ₽ showed Запишитесь на онлайн-сессию, click on 7,500 ₽ showed Запишитесь на очную встречу; certificateCount=24, allHaveUrl=true, visibleBroken=[] and visible certificate images loaded with naturalWidth 1170–1754",
+      "observed_visible_result": "Desktop shows grouped pricing with direct CTA in every card; the normal online CTA opened the matching modal, all 24 certificate cards have real URLs and visible cards have no broken images.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "viewport_source": "Playwright resize; innerWidth=1440; innerHeight=900",
+      "before_signature": "previous pricing layout mixed formats and exposed only three booking CTAs",
+      "after_signature": "pricingCtas=5; overflow=false; Online and Очно в Москве · м. Курская remain separate sections",
+      "observed_visible_result": "Wide desktop retained all five direct booking CTAs with no horizontal overflow.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "",
+    "owner_approval_reference": ""
+  }
+}

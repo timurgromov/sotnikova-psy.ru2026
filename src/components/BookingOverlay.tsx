@@ -1,8 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-export type BookingType = "free" | "diagnostic";
+export type BookingType =
+  | "free"
+  | "online"
+  | "diagnostic-online"
+  | "in-person"
+  | "diagnostic-in-person";
 
 interface BookingOverlayProps {
   open: boolean;
@@ -25,16 +31,43 @@ const bookingCopy: Record<
     description:
       "Встреча-знакомство (15–20 минут), чтобы познакомиться и понять, подходим ли мы друг другу.",
   },
-  diagnostic: {
-    title: "Запишитесь на диагностическую сессию",
+  online: {
+    title: "Запишитесь на онлайн-сессию",
     description:
-      "Диагностическая встреча (90 минут), чтобы глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
+      "Онлайн-встреча (55 минут) для регулярной терапии и бережной работы над запросом.",
+  },
+  "diagnostic-online": {
+    title: "Запишитесь на диагностическую онлайн-сессию",
+    description:
+      "Онлайн-встреча (90 минут), чтобы глубже разобраться в ситуации, получить первичную концептуализацию и первые рекомендации.",
+  },
+  "in-person": {
+    title: "Запишитесь на очную встречу",
+    description:
+      "Очная консультация в Москве, м. Курская (50–55 минут).",
+  },
+  "diagnostic-in-person": {
+    title: "Запишитесь на очную диагностическую сессию",
+    description:
+      "Очная диагностическая встреча в Москве, м. Курская (90 минут), чтобы глубже разобраться в ситуации и получить первые рекомендации.",
   },
 };
 
-const BookingOverlay = ({ open, onClose, bookingType }: BookingOverlayProps) => (
-  <AnimatePresence>
-    {open && (
+const BookingOverlay = ({ open, onClose, bookingType }: BookingOverlayProps) => {
+  useEffect(() => {
+    if (!open) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [onClose, open]);
+
+  return (
+    <AnimatePresence>
+      {open && (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -113,8 +146,9 @@ const BookingOverlay = ({ open, onClose, bookingType }: BookingOverlayProps) => 
           </button>
         </motion.div>
       </motion.div>
-    )}
-  </AnimatePresence>
-);
+      )}
+    </AnimatePresence>
+  );
+};
 
 export default BookingOverlay;

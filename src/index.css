@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 36 5% 23%;
 
-    --primary: 153 16% 63%;
+    --primary: 153 18% 41%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 36 14% 91%;
@@ -69,6 +69,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+  }
+
+  a, button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
   [id] {
