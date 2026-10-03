@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-03-certificates",
+  "change_kind": "certificate-gallery",
+  "status": "passed",
+  "requested_visible_change": "Add the two supplied certificates to the public gallery.",
+  "expected_visible_delta": "The gallery count changes from 20 to 22, and the two supplied conference certificates appear as distinct cards that open in the lightbox.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "7dfc162d34bb27efe3e572db3f3a09b096097a3381cb004751e5611c0d321a6d",
+  "served_candidate": {
+    "url": "http://127.0.0.1:8080/",
+    "source_ref": "working-tree",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/",
+    "state": "public landing page, certificates gallery",
+    "selector_or_slide_id": "certificate cards 23-neurogastroenterology-2025 and 24-obesity-conference-2026",
+    "action": "open the neurogastroenterology card, then activate the next-certificate lightbox control"
+  },
+  "must_remain_unchanged": [
+    "existing certificate cards",
+    "gallery navigation",
+    "lightbox close and previous/next controls",
+    "primary booking CTA"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1280x720"
+  ],
+  "observations": [
+    {
+      "viewport": "1280x720",
+      "viewport_source": "Playwright headed browser; inner viewport 1280x720",
+      "before_signature": "gallery_count=20; new_titles_absent",
+      "after_signature": "gallery_count=22; card_title=Участие в конференции Академии нейрогастроэнтерологии; next_lightbox_title=Научно-практическая конференция «В мире больших людей»",
+      "observed_visible_result": "Both cards are present. The first opens in the lightbox, and the next control visibly changes the full-size image to the second certificate.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "390x844",
+      "viewport_source": "Playwright resize; inner viewport 390x844",
+      "before_signature": "gallery_count=20; new_titles_absent",
+      "after_signature": "gallery_count=22; second_certificate_lightbox_visible; viewport_scroll_width=390",
+      "observed_visible_result": "The second certificate remains fully visible inside the mobile lightbox, and its previous/next controls remain reachable.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "",
+    "owner_approval_reference": ""
+  }
+}

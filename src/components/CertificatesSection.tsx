@@ -113,6 +113,16 @@ const certificates: CertificateItem[] = [
     meta: "Школа диетологов · 12 ак. часов · 2021",
     src: certificateSrc("21.jpeg"),
   },
+  {
+    title: "Участие в конференции Академии нейрогастроэнтерологии",
+    meta: "Академия нейрогастроэнтерологии · 2025",
+    src: certificateSrc("23.jpeg"),
+  },
+  {
+    title: "Научно-практическая конференция «В мире больших людей»",
+    meta: "Минздрав России · 6 кредитов · 2026",
+    src: certificateSrc("24.jpeg"),
+  },
 ];
 
 const CertificatesSection = () => {
@@ -169,7 +179,7 @@ const CertificatesSection = () => {
             Дипломы и сертификаты
           </h2>
           <p className="text-sm font-medium text-foreground/80 text-center mb-1">
-            20 подтверждающих документов
+            {certificates.length} подтверждающих документа
           </p>
           <p className="text-xs text-muted-foreground text-center mb-8">
             CBT-E • EMDR • DBT
