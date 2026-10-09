@@ -31,17 +31,12 @@ describe("PricingSection", () => {
     expect(within(inPersonCard!).getByText("Диагностическая сессия")).toBeInTheDocument();
     expect(within(inPersonCard!).getByText("7 500 ₽")).toBeInTheDocument();
     expect(within(inPersonCard!).getByText("8 000 ₽")).toBeInTheDocument();
-    expect(screen.getAllByRole("button")).toHaveLength(3);
-
-    const intro = screen.getByRole("heading", { name: "Встреча-знакомство" }).closest("section");
-    expect(intro).not.toBeNull();
-    fireEvent.click(within(intro!).getByRole("button", { name: "Записаться" }));
+    expect(screen.getAllByRole("button")).toHaveLength(2);
 
     fireEvent.click(within(onlineCard!).getByRole("button", { name: "Записаться онлайн" }));
     fireEvent.click(within(inPersonCard!).getByRole("button", { name: "Записаться очно" }));
 
     expect(onBookClick.mock.calls).toEqual([
-      ["free"],
       ["online"],
       ["in-person"],
     ]);

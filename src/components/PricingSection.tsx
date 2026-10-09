@@ -75,40 +75,14 @@ const PricingSection = ({ onBookClick }: PricingSectionProps) => (
         </p>
       </AnimatedSection>
 
-      <AnimatedSection>
-        <section
-          aria-labelledby="intro-meeting-title"
-          className="card-surface border border-primary/25 bg-primary/5 px-6 py-5 md:px-7"
-        >
-          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_auto_auto] md:items-center md:gap-7">
-            <div>
-              <h3 id="intro-meeting-title" className="font-heading text-lg font-semibold">
-                Встреча-знакомство
-              </h3>
-              <p className="text-muted-foreground text-sm mt-1">
-                Онлайн · 15–20 минут · чтобы познакомиться и задать вопросы
-              </p>
-            </div>
-            <p className="font-heading text-lg font-bold whitespace-nowrap">Бесплатно</p>
-            <button
-              type="button"
-              onClick={() => onBookClick("free")}
-              className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity w-full md:w-auto"
-            >
-              Записаться
-            </button>
-          </div>
-        </section>
-      </AnimatedSection>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {pricingFormats.map((format, formatIndex) => {
           const headingId = `pricing-${format.bookingType}-title`;
 
           return (
             <AnimatedSection
               key={format.bookingType}
-              delay={(formatIndex + 1) * 0.08}
+              delay={formatIndex * 0.08}
               className="h-full"
             >
               <article

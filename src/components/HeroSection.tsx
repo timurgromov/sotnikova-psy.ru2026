@@ -64,10 +64,10 @@ const HeroSection = ({ onBookClick }: HeroSectionProps) => (
           >
             <button
               type="button"
-              onClick={() => onBookClick("free")}
+              onClick={() => onBookClick("general")}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-heading font-semibold text-base hover:opacity-90 transition-opacity"
             >
-              Записаться на встречу-знакомство
+              Записаться на консультацию
             </button>
             <button
               type="button"

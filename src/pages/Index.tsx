@@ -16,9 +16,9 @@ import FloatingContact from "@/components/FloatingContact";
 
 const Index = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
-  const [bookingType, setBookingType] = useState<BookingType>("free");
+  const [bookingType, setBookingType] = useState<BookingType>("general");
 
-  const handleBookClick = (type: BookingType = "free") => {
+  const handleBookClick = (type: BookingType = "general") => {
     setBookingType(type);
     setBookingOpen(true);
   };

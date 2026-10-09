@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-10-09-remove-intro-meeting",
+  "change_kind": "landing-content-and-booking-flow",
+  "status": "passed",
+  "requested_visible_change": "Remove the free introductory meeting everywhere it is offered and leave a coherent paid-consultation path.",
+  "expected_visible_delta": "The hero uses a neutral consultation CTA; the path has three renumbered steps; FAQ has no introductory-meeting question; pricing begins directly with Online and In-person cards.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "5bd9492fca99b9012a3a19d50c9410544802a126520b8dd421d277d07d884a63",
+  "served_candidate": {
+    "url": "http://127.0.0.1:8080/",
+    "source_ref": "staged working tree based on 1ad0ea0",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/",
+    "state": "public landing page without authentication",
+    "selector_or_slide_id": "#top, #path, #faq, #pricing and BookingOverlay",
+    "action": "Open the fresh local candidate, inspect the hero, path, FAQ and pricing, then open the general, online and in-person booking CTAs."
+  },
+  "must_remain_unchanged": [
+    "All four paid prices and durations",
+    "Moscow, Kurskaya in-person location",
+    "Payment note",
+    "Online and in-person booking CTA destinations"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1023x768",
+    "1024x768",
+    "1025x768",
+    "1440x900"
+  ],
+  "observations": [
+    {
+      "viewport": "390x844",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=390; innerHeight=844",
+      "before_signature": "Live production: hero CTA was 'Записаться на встречу-знакомство'; the page contained a free price strip, an introductory-meeting FAQ question and four path steps beginning with 'Знакомство'.",
+      "after_signature": "Fresh local candidate: hero CTA is 'Записаться на консультацию'; no introductory/free copy is present; the path titles are 'Диагностика и карта пути', 'Бережная терапия', 'Переход в ремиссию'; four FAQ questions and two 342px stacked pricing cards are visible without horizontal overflow.",
+      "observed_visible_result": "The mobile first screen visibly shows the neutral consultation CTA and portrait without overflow. The CTA opens 'Запишитесь на консультацию'; both format CTAs open their respective online and in-person dialogs.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1023x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1023; innerHeight=768",
+      "before_signature": "Live production contained the free introductory strip above the paid pricing module.",
+      "after_signature": "Fresh local candidate has no introductory strip; Online and In-person cards are 975px wide and stacked at x=24 with no horizontal overflow.",
+      "observed_visible_result": "Immediately below the desktop breakpoint, both paid-format cards remain readable in one column and no removed copy is present.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1024x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1024; innerHeight=768",
+      "before_signature": "Live production contained the free introductory strip above the paid pricing module.",
+      "after_signature": "Fresh local candidate has two 480px cards at x=24 and x=520 in the same desktop row; no introductory/free copy is present.",
+      "observed_visible_result": "At the lg breakpoint the two paid formats form one coherent row while each still contains both session types and one CTA.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1025x768",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1025; innerHeight=768",
+      "before_signature": "Live production contained the free introductory strip above the paid pricing module.",
+      "after_signature": "Fresh local candidate keeps two 480px cards at x=25 and x=521 with no horizontal overflow or removed copy.",
+      "observed_visible_result": "One pixel above the breakpoint, the balanced two-card paid module remains intact and readable.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1440; innerHeight=900",
+      "before_signature": "Live production showed the free introductory strip and a four-step path beginning with 'Знакомство'.",
+      "after_signature": "Fresh local candidate shows the three-step path numbered 1–3 and a two-card 480px-per-card pricing row containing Online and In-person in Moscow; no introductory/free copy is present.",
+      "observed_visible_result": "The desktop path was visually inspected after fresh reload: numbering is 1, 2, 3 with no visual gap. The pricing module remains responsive and its CTA labels are intact.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "remove introductory meeting and use neutral general booking",
+    "owner_approval_reference": "User annotations on four screenshots dated 2026-10-09"
+  }
+}

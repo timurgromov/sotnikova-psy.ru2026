@@ -59,7 +59,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
               </a>
               <button
                 type="button"
-                onClick={() => onBookClick("free")}
+                onClick={() => onBookClick("general")}
                 className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
               >
                 Записаться
@@ -101,7 +101,7 @@ const HeaderSection = ({ onBookClick }: HeaderSectionProps) => {
                   type="button"
                   onClick={() => {
                     setOpen(false);
-                    onBookClick("free");
+                    onBookClick("general");
                   }}
                   className="bg-primary text-primary-foreground px-5 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
                 >
