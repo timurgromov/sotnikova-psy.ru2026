@@ -24,8 +24,7 @@ describe("PricingSection", () => {
 
     expect(within(onlineCard!).getAllByText("Сессия")).toHaveLength(1);
     expect(within(onlineCard!).getByText("Диагностическая сессия")).toBeInTheDocument();
-    expect(within(onlineCard!).getByText("5 500 ₽")).toBeInTheDocument();
-    expect(within(onlineCard!).getByText("6 000 ₽")).toBeInTheDocument();
+    expect(within(onlineCard!).getAllByText("6 000 ₽")).toHaveLength(2);
 
     expect(within(inPersonCard!).getAllByText("Сессия")).toHaveLength(1);
     expect(within(inPersonCard!).getByText("Диагностическая сессия")).toBeInTheDocument();

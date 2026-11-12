@@ -30,7 +30,7 @@ const pricingFormats: PricingFormat[] = [
       {
         title: "Сессия",
         duration: "55 минут",
-        price: "5 500 ₽",
+        price: "6 000 ₽",
         description: "Основной формат регулярной терапии.",
       },
       {

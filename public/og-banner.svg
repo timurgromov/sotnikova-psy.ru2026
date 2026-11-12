@@ -42,12 +42,12 @@
 
   <text x="96" y="492" fill="#6F6A63" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="500">
     <tspan x="96" dy="0">Доказательный подход</tspan>
-    <tspan x="96" dy="42">Бережная работа онлайн</tspan>
+    <tspan x="96" dy="42">Бережная работа онлайн и очно</tspan>
   </text>
 
   <rect x="96" y="538" width="278" height="2" rx="1" fill="#A6BDAF"/>
   <text x="96" y="582" fill="#8A857C" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="500">
-    Онлайн-консультации
+    Сессии онлайн и очно
   </text>
 
   <g filter="url(#shadow)">

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-11-12-online-price-and-social-preview",
+  "change_kind": "pricing-and-social-preview",
+  "status": "passed",
+  "requested_visible_change": "Изменить цену обычной онлайн-сессии с 5 500 ₽ на 6 000 ₽ и явно указать в карточке ссылки, что сессии проходят онлайн и очно.",
+  "expected_visible_delta": "Карточка «Онлайн» показывает 6 000 ₽; OG-описание и новое 1200x630 preview-изображение содержат «Сессии онлайн и очно», а image-meta теги используют новый URL.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "898841add78c01b6922a81d8206fb4e962d6db617ee3c734b694766b8232aa58",
+  "served_candidate": {
+    "url": "http://127.0.0.1:8080/",
+    "source_ref": "working-tree",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/ and Open Graph metadata",
+    "state": "public landing page without authentication",
+    "selector_or_slide_id": "#pricing [aria-labelledby=pricing-online-title]; meta[property=og:image]",
+    "action": "open the current landing page and inspect the online card and Open Graph meta tags"
+  },
+  "must_remain_unchanged": [
+    "55-minute duration of the normal online session",
+    "diagnostic and in-person prices",
+    "two-card pricing layout",
+    "portrait and headline in the social preview"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1440x900"
+  ],
+  "observations": [
+    {
+      "viewport": "390x844",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=390; innerHeight=844",
+      "before_signature": "Live production: normal online session is 5 500 ₽; Open Graph image URL is og-telegram-20260512.jpeg and description says only online consultations.",
+      "after_signature": "Fresh local candidate: normal online session is 6 000 ₽; both online prices render as 6 000 ₽; scrollWidth equals innerWidth.",
+      "observed_visible_result": "The mobile Online card shows the new 6 000 ₽ price for the 55-minute session with no horizontal overflow.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "viewport_source": "Codex in-app browser viewport; innerWidth=1440; innerHeight=900",
+      "before_signature": "Live production: normal online session is 5 500 ₽ and the social preview points to og-telegram-20260512.jpeg.",
+      "after_signature": "Fresh local candidate: normal online session is 6 000 ₽ without overflow; og:image, og:image:secure_url and twitter:image point to og-telegram-20261112.jpeg; descriptions say Сессии онлайн и очно.",
+      "observed_visible_result": "The desktop pricing layout remains intact; the new 1200x630 JPEG visibly reads Бережная работа онлайн и очно and Сессии онлайн и очно.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "",
+    "owner_approval_reference": ""
+  }
+}
