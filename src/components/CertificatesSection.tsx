@@ -25,11 +25,14 @@ import certificate21 from "../../certificates/21.jpeg";
 import certificate22 from "../../certificates/22.jpeg";
 import certificate23 from "../../certificates/23.jpeg";
 import certificate24 from "../../certificates/24.jpeg";
+import certificate25 from "../../certificates/sensorium-iarebt-eating-disorders-2026.jpeg";
+import certificate25Pdf from "../../certificates/sensorium-iarebt-eating-disorders-2026.pdf";
 
 type CertificateItem = {
   title: string;
   meta: string;
   src: string;
+  documentSrc?: string;
 };
 
 // Static imports make a missing certificate a build error instead of a broken
@@ -64,6 +67,12 @@ const certificateSources: Record<string, string> = {
 const certificateSrc = (fileName: string) => certificateSources[fileName];
 
 const certificates: CertificateItem[] = [
+  {
+    title: "РЭПТ в работе с РПП и неудовлетворённостью телом",
+    meta: "Sensorium · IAREBT · 4 часа · 2026",
+    src: certificate25,
+    documentSrc: certificate25Pdf,
+  },
   {
     title: "Свидетельство о членстве в АРППС",
     meta: "АРППС · 2024",
@@ -370,6 +379,17 @@ const CertificatesSection = () => {
             className="block max-w-[92vw] max-h-[86vh] object-contain rounded-lg animate-in fade-in zoom-in-95 duration-200 mx-auto"
             onClick={(e) => e.stopPropagation()}
           />
+          {certificates[lightboxIndex].documentSrc && (
+            <a
+              href={certificates[lightboxIndex].documentSrc}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-foreground shadow-lg transition-opacity hover:opacity-90"
+            >
+              Открыть оригинал PDF ↗
+            </a>
+          )}
         </div>
       )}
     </div>

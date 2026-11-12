@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "change_id": "2026-11-12-sensorium-iarebt-certificate",
+  "change_kind": "certificate-carousel",
+  "status": "passed",
+  "requested_visible_change": "Добавить присланный сертификат Sensorium/IAREBT в раздел «Дипломы и сертификаты».",
+  "expected_visible_delta": "Первой карточкой карусели становится сертификат РЭПТ; счётчик увеличивается с 24 до 25, а lightbox содержит читаемое превью и ссылку на исходный PDF.",
+  "attempt_number": 1,
+  "checked_after_last_edit": true,
+  "candidate_diff_sha256": "aa4d59287760c06b0aa8f0c338a91481a8215c64f33a46690468593ec465d994",
+  "served_candidate": {
+    "url": "http://127.0.0.1:8080/",
+    "source_ref": "working-tree",
+    "fresh_reload": true
+  },
+  "target": {
+    "surface": "/",
+    "state": "публичная главная страница, галерея «Дипломы и сертификаты»",
+    "selector_or_slide_id": "button[name*=«РЭПТ в работе с РПП и неудовлетворённостью телом»]",
+    "action": "нажать первую карточку сертификата"
+  },
+  "must_remain_unchanged": [
+    "Порядок и содержимое прежних 24 сертификатов",
+    "Горизонтальная карусель и навигация lightbox",
+    "Читаемость карточки и lightbox на мобильном и desktop"
+  ],
+  "required_viewports": [
+    "390x844",
+    "1440x900"
+  ],
+  "observations": [
+    {
+      "viewport": "390x844",
+      "viewport_source": "in-app browser viewport; innerWidth=390; innerHeight=844",
+      "before_signature": "опубликованная страница: 24 подтверждающих документа; новой карточки и PDF-ссылки нет",
+      "after_signature": "25 подтверждающих документа; первая карточка — РЭПТ; lightbox показывает JPEG 2560x1804 и ссылку /certificates/sensorium-iarebt-eating-disorders-2026.pdf",
+      "observed_visible_result": "Карточка и lightbox с сертификатом видимы; ссылка на оригинальный PDF полностью помещается в экран.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "viewport_source": "in-app browser viewport; innerWidth=1440; innerHeight=900",
+      "before_signature": "опубликованная страница: 24 подтверждающих документа; новой карточки и PDF-ссылки нет",
+      "after_signature": "25 подтверждающих документа; первая карточка — РЭПТ; lightbox показывает JPEG 2560x1804 и ссылку на исходный PDF",
+      "observed_visible_result": "Клик по карточке открывает крупное читаемое превью сертификата и ссылку на PDF; ошибок консоли нет.",
+      "delta_visible": true,
+      "target_visible": true,
+      "preserved_invariants_passed": true,
+      "console_errors": []
+    }
+  ],
+  "comparison_review": {
+    "variants_shown": 0,
+    "selected_variant": "",
+    "owner_approval_reference": ""
+  }
+}
